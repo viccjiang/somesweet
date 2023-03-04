@@ -1,0 +1,24 @@
+// font-family: 'Expletus Sans', cursive;
+// font-family: 'Noto Sans TC', sans-serif;
+
+.logoText{
+  font-family: 'Expletus Sans', cursive;
+}
+
+.bgcover{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.object-fit{
+	object-fit: cover;
+}
+
+.filters {
+  filter: brightness(0.6);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
