@@ -2,19 +2,19 @@
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                                        height: 200px;
-                                        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                                        background-size: cover;
-                                        background-position: center center;
-                                        background-attachment: fixed;
-                                      " />
+                                              height: 200px;
+                                              background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                                              background-size: cover;
+                                              background-position: center center;
+                                              background-attachment: fixed;
+                                            " />
       <div class="
-                                        card-img-overlay
-                                        d-flex
-                                        flex-column
-                                        justify-content-center
-                                        align-item-center
-                                      ">
+                                              card-img-overlay
+                                              d-flex
+                                              flex-column
+                                              justify-content-center
+                                              align-item-center
+                                            ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -41,13 +41,13 @@
               <div class="card-body py-0">
                 <a href="#" class="list-group-item list-group-item-action rounded-0 p-3"
                   @click.prevent="selectCategory = ''; this.$route.params.selectCategory = '';">
-                  <i class="bi bi-arrow-right-circle"></i> 全部
+                  <i class="bi bi-dash-lg"></i> 全部商品
                 </a>
                 <ul class="list-unstyled">
                   <li><a href="#" v-for="item in categories" :key="item"
                       class="list-group-item list-group-item-action rounded-0 p-3"
                       @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;"><i
-                        class="bi bi-arrow-right-circle"></i> {{ item }}</a>
+                        class="bi bi-dash-lg"></i> {{ item }}</a>
                   </li>
                 </ul>
               </div>
@@ -58,8 +58,36 @@
       <div class="col-md-9">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
-            <div class="product card h-100 p-5 rounded-4 products-img">
-              <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 " :alt="product.title">
+            <div class="product card h-100 p-5 rounded-4 products-img ">
+
+              <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative" :alt="product.title">
+              <a href="#" @click.prevent="addMyFavorite(product)" :class="{ active: myFavorite.includes(product.id) }"
+                class="link-secondary d-block rounded-0">
+                <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
+                              fs-3
+
+                              bi bi-bookmark-heart-fill
+                              position-absolute
+                              top-5
+                              start-15
+                              me-2
+                              mt-1
+                              pt-1
+                              text-white
+
+                            "></i>
+                <i v-else style="z-index: 1" class="
+                              fs-3
+                              bi bi-bookmark
+                              position-absolute
+                              top-5
+                              start-15
+                              me-2
+                              mt-1
+                              pt-1
+                              text-white
+                            "></i>
+              </a>
               <div class="card-body d-flex flex-column ">
                 <h5 class="fs-6 fw-bold card-title mb-6">{{ product.title }}</h5>
                 <!-- <p class="card-text text-truncate mb-6">{{ product.content }}</p> -->
@@ -86,8 +114,8 @@
         </div>
         <!-- 分頁 -->
         <!-- 分頁元件 -->
-        <PaginationComponent class="mt-5 mb-5 float-end" :pages="pagination" @emit-pages="getProducts">
-        </PaginationComponent>
+        <!-- <PaginationComponent class="mt-5 mb-5 float-end" :pages="pagination" @emit-pages="getProducts">
+        </PaginationComponent> -->
         <!-- 分頁元件 -->
       </div>
     </div>
@@ -97,11 +125,12 @@
 <script>
 import cartStore from '../../store/UserCartStore.js'
 import { mapActions, mapState } from 'pinia'
-import PaginationComponent from '../../components/PaginationComponent.vue'
+import storageMethods from '../../methods/LocalStorage'
+// import PaginationComponent from '../../components/PaginationComponent.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   components: {
-    PaginationComponent
+    // PaginationComponent
   },
   data () {
     return {
@@ -113,7 +142,8 @@ export default {
         loadingItem: '' // 對應品項 id
       },
       categories: [], // 產品的分類項目
-      selectCategory: '' // 選取分類項目按鈕後，selectCategory = item，用 computed 做切換
+      selectCategory: '', // 選取分類項目按鈕後，selectCategory = item，用 computed 做切換
+      myFavorite: storageMethods.get() || [] // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
     }
   },
   methods: {
@@ -160,6 +190,43 @@ export default {
       this.categories = [...categories] // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
       console.log(this.categories)
     },
+    addMyFavorite (item) {
+      // this.myFavorite.push(item.id);
+      // this.myFavorite.includes(item.id) 原本是寫 item.id 存 id 就好，但後面要做其他事情可以先存整個物件
+      if (this.myFavorite.includes(item.id)) {
+        // 這裡意思是 如果我的最愛已經有這個品項，再按一次就代表取消
+        this.myFavorite.splice(this.myFavorite.indexOf(item.id), 1)
+        // emitter.emit('update-favorite'); // 更新最愛數量
+      } else {
+        this.myFavorite.push(item.id) // 否則沒有此品項 就把品項加入
+        this.favShowAlert()
+        // emitter.emit('update-favorite'); // 更新最愛數量
+      }
+      // storageMethods.save(this.myFavorite); // 儲存狀態
+      // emitter.emit('update-favorite'); // 更新最愛數量
+    },
+    showAlert () {
+      // Use sweetalert2
+      this.$swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已加入購物車',
+        showConfirmButton: false,
+        timer: 2000,
+        iconColor: '#236F6B'
+      })
+    },
+    favShowAlert () {
+      // Use sweetalert2
+      this.$swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已加入收藏',
+        showConfirmButton: false,
+        timer: 2000,
+        iconColor: '#236F6B'
+      })
+    },
     ...mapActions(cartStore, [
       'getCarts',
       'addToCart'
@@ -184,7 +251,7 @@ export default {
     ...mapState(cartStore, ['cartData', 'cartsLength']),
     // 產生新的資料集 (裡面的值產生變化之後，資料重新運算)
     filterProducts () {
-      return this.products.filter((item) => item.category.match(this.selectCategory))
+      return this.productsAll.filter((item) => item.category.match(this.selectCategory))
       // 如果選到的產品品項是一樣的就呈現
       // 監聽 this.products  this.selectCategory
       // 空字串，或任何符合結果都會是 “真值”
@@ -196,11 +263,19 @@ export default {
         console.log(newValue, preValue)
         this.getAllProducts()
       }
+    },
+    // 監聽特定值
+    myFavorite: {
+      // 深層監聽
+      handler () {
+        storageMethods.save(this.myFavorite) // 把資料儲存
+      },
+      deep: true
     }
   },
   mounted () {
     // 進頁面先抓產品資料
-    this.getProducts()
+    // this.getProducts()
     this.getAllProducts()
   }
 }

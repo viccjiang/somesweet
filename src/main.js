@@ -6,6 +6,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import CKEditor from '@ckeditor/ckeditor5-vue'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 // VeeValidate
 import {
@@ -35,8 +37,14 @@ setLocale('zh_TW')
 const pinia = createPinia()
 const app = createApp(App)
 
+const options = {
+  confirmButtonColor: '#236F6B',
+  cancelButtonColor: '#EE847D'
+}
+
 app.use(pinia)
 app.use(CKEditor)
+app.use(VueSweetalert2, options)
 app.use(VueAxios, axios)
 app.use(router)
 app.component('FormView', Form) // 改為兩個字母
