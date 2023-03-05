@@ -10,10 +10,10 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li v-for="(item, index) in pages.total_pages" :key="index" class="page-item"
-        :class="{ 'active': item === pages.current_page }">
-        <span class="page-link" v-if="item === pages.current_page">{{ item }}</span>
-        <a class="page-link" href="#" v-else @click.prevent="$emit('emitPages', item)">{{ item }}</a>
+      <li v-for="(page, index) in pages.total_pages" :key="index" class="page-item"
+        :class="{ 'active': page === pages.current_page }">
+        <span class="page-link" v-if="page === pages.current_page">{{ page }}</span>
+        <a class="page-link" href="#" v-else @click.prevent="$emit('emitPages', page)">{{ page}}</a>
       </li>
       <!-- 如果有下一頁就顯示有下一頁的那顆按鈕 -->
       <!-- :class="{ 'disabled': !pages.has_next }" -->
