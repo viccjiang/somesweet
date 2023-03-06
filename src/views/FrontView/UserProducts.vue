@@ -1,22 +1,22 @@
 <template>
-  <VueLoading :active="isLoading" loader="bars" color="#034D83"/>
+  <VueLoading :active="isLoading" loader="bars" color="#034D83" />
   <GoTop></GoTop>
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                                              height: 200px;
-                                              background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                                              background-size: cover;
-                                              background-position: center center;
-                                              background-attachment: fixed;
-                                            " />
+                                                height: 200px;
+                                                background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                                                background-size: cover;
+                                                background-position: center center;
+                                                background-attachment: fixed;
+                                              " />
       <div class="
-                                              card-img-overlay
-                                              d-flex
-                                              flex-column
-                                              justify-content-center
-                                              align-item-center
-                                            ">
+                                                card-img-overlay
+                                                d-flex
+                                                flex-column
+                                                justify-content-center
+                                                align-item-center
+                                              ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -62,26 +62,27 @@
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
             <div class="product card h-100 p-5 rounded-4 products-img ">
 
-              <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative" :alt="product.title">
+              <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative"
+                :alt="product.title">
               <a href="#" @click.prevent="addMyFavorite(product)" :class="{ active: myFavorite.includes(product.id) }"
                 class="link-secondary d-block rounded-0">
 
                 <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
-                              fs-1
-                              bi bi-bookmark-heart-fill
-                              position-absolute
-                              top-0
-                              start-15
-                              text-warning
-                            "></i>
+                                fs-1
+                                bi bi-bookmark-heart-fill
+                                position-absolute
+                                top-0
+                                start-15
+                                text-warning
+                              "></i>
                 <i v-else style="z-index: 1" class="
-                              fs-1
-                              bi bi-bookmark
-                              position-absolute
-                              top-0
-                              start-15
-                              text-white
-                            "></i>
+                                fs-1
+                                bi bi-bookmark
+                                position-absolute
+                                top-0
+                                start-15
+                                text-white
+                              "></i>
               </a>
               <div class="card-body d-flex flex-column ">
                 <h5 class="fs-6 fw-bold card-title mb-6">{{ product.title }}</h5>
@@ -221,13 +222,28 @@ export default {
     // },
     favShowAlert () {
       // Use sweetalert2
-      this.$swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: '已加入收藏',
+      // this.$swal.fire({
+      //   position: 'center',
+      //   icon: 'success',
+      //   title: '已加入收藏',
+      //   showConfirmButton: false,
+      //   timer: 2000,
+      //   iconColor: '#236F6B'
+      // })
+      const Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
         showConfirmButton: false,
-        timer: 2000,
-        iconColor: '#236F6B'
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', this.$swal.stopTimer)
+          toast.addEventListener('mouseleave', this.$swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: '已加入蒐藏清單'
       })
     },
     ...mapActions(cartStore, ['getCarts', 'addToCart', 'showAlert'])
