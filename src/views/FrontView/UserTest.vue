@@ -4,7 +4,7 @@
   <GoTop></GoTop>
   <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5" data-bs-autohide="false">
   <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
+    <img src="" class="rounded me-2" alt="">
     <strong class="me-auto">領取優惠碼</strong>
     <small>限時限量倒數中</small>
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
