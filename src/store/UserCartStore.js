@@ -1,4 +1,7 @@
 import axios from 'axios' // 使用 pinia 只能用 axios，不能用 this 呼叫
+import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
 import { defineStore } from 'pinia'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -46,6 +49,7 @@ export default defineStore('cart', {
         .then(res => {
           // this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
           console.log('加入購物車', res.data)
+          this.showAlert()
           this.getCarts()
         })
     },
@@ -74,6 +78,36 @@ export default defineStore('cart', {
           console.log(res)
           this.getCarts()
         })
+    },
+    showAlert () {
+      // Use sweetalert2
+      // Swal.fire({
+      //   position: 'top-end',
+      //   icon: 'success',
+      //   title: '已加入購物車',
+      //   showConfirmButton: false,
+      //   timer: 2000,
+      //   iconColor: '#236F6B',
+      //   width: 300,
+      //   // padding: '3em',
+      //   color: '#236F6B'
+      //   // background: '#fff url(/images/trees.png)',
+      // })
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: '已加入購物車'
+      })
     }
     // createOrder () {
     //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/order`

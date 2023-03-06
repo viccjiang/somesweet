@@ -8,6 +8,8 @@ import VueAxios from 'vue-axios'
 import CKEditor from '@ckeditor/ckeditor5-vue'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 
 // VeeValidate
 import {
@@ -47,6 +49,7 @@ app.use(CKEditor)
 app.use(VueSweetalert2, options)
 app.use(VueAxios, axios)
 app.use(router)
+app.component('LoadingView', VueLoading)
 app.component('FormView', Form) // 改為兩個字母
 app.component('FieldView', Field) // 改為兩個字母
 app.component('ErrorMessage', ErrorMessage)

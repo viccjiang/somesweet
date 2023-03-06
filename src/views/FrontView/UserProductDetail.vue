@@ -1,9 +1,10 @@
 <!-- eslint-disable no-undef -->
 <template>
+  <VueLoading :active="isLoading" loader="bars" color="#034D83"/>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-6">
-        <img class="rounded-0 w-100" :src="productImg" :alt="product.title" style="
+      <div class="col-12 col-md-6 ">
+        <img class="p-4 rounded-5 w-100 border" :src="productImg" :alt="product.title" style="
                                   height: 400px;
                                   background-size: cover;
                                   background-position: center center;
@@ -16,7 +17,7 @@
                                         background-size: cover;
                                         background-position: center center;
                                         object-fit: cover;
-                                      " class="w-100 p-0 rounded-0 mt-2" :src="product.imageUrl" alt="產品"
+                                      " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="product.imageUrl" alt="產品"
               @click="changeImg(product.imageUrl)" />
           </div>
           <div class="col-4" v-for="(img, key) in product.imagesUrl" :key="`圖_${key}`">
@@ -25,7 +26,7 @@
                                         background-size: cover;
                                         background-position: center center;
                                         object-fit: cover;
-                                      " class="w-100 p-0 rounded-0 mt-2" :src="img" :alt="`圖_${key}`"
+                                      " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="img" :alt="`圖_${key}`"
               @click="changeImg(img)" />
           </div>
         </div>
@@ -96,6 +97,8 @@
 </template>
 
 <script>
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -104,23 +107,29 @@ export default {
   /* eslint-disable camelcase */
   data () {
     return {
+      isLoading: false,
       product: [], // 單一產品資訊
       id: '', // 單一產品的 id
       productImg: '',
       qty: 1 // 畫面上的輸入欄位顯示的預設值
     }
   },
+  components: {
+    VueLoading
+  },
   methods: {
 
     getProduct () {
       // $route 物件取值
       // $router 方法
+      this.isLoading = true
       this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/product/${this.id}`)
         .then(res => {
           console.log(res.data)
           const { product } = res.data
           this.product = product
           this.productImg = this.product.imageUrl
+          this.isLoading = false
           console.log(this.product)
         })
     },

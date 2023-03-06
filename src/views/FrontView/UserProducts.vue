@@ -1,4 +1,6 @@
 <template>
+  <VueLoading :active="isLoading" loader="bars" color="#034D83"/>
+  <GoTop></GoTop>
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
@@ -63,28 +65,21 @@
               <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative" :alt="product.title">
               <a href="#" @click.prevent="addMyFavorite(product)" :class="{ active: myFavorite.includes(product.id) }"
                 class="link-secondary d-block rounded-0">
-                <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
-                              fs-3
 
+                <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
+                              fs-1
                               bi bi-bookmark-heart-fill
                               position-absolute
-                              top-5
+                              top-0
                               start-15
-                              me-2
-                              mt-1
-                              pt-1
-                              text-white
-
+                              text-warning
                             "></i>
                 <i v-else style="z-index: 1" class="
-                              fs-3
+                              fs-1
                               bi bi-bookmark
                               position-absolute
-                              top-5
+                              top-0
                               start-15
-                              me-2
-                              mt-1
-                              pt-1
                               text-white
                             "></i>
               </a>
@@ -123,13 +118,18 @@
 </template>
 
 <script>
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 import cartStore from '../../store/UserCartStore.js'
 import { mapActions, mapState } from 'pinia'
 import storageMethods from '../../methods/LocalStorage'
+import GoTop from '../../components/GoTop.vue'
 // import PaginationComponent from '../../components/PaginationComponent.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   components: {
+    GoTop,
+    VueLoading
     // PaginationComponent
   },
   data () {
@@ -141,6 +141,7 @@ export default {
       status: {
         loadingItem: '' // 對應品項 id
       },
+      isLoading: false,
       categories: [], // 產品的分類項目
       selectCategory: '', // 選取分類項目按鈕後，selectCategory = item，用 computed 做切換
       myFavorite: storageMethods.get() || [] // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
@@ -148,6 +149,7 @@ export default {
   },
   methods: {
     getAllProducts (page) {
+      this.isLoading = true
       this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/products/all`)
         .then(res => {
           console.log(res)
@@ -156,6 +158,7 @@ export default {
           this.getCategories()
           const { selectCategory } = this.$route.params
           console.log(selectCategory)
+          this.isLoading = false
           if (selectCategory) {
             this.selectCategory = selectCategory
           }
@@ -205,17 +208,17 @@ export default {
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
     },
-    showAlert () {
-      // Use sweetalert2
-      this.$swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: '已加入購物車',
-        showConfirmButton: false,
-        timer: 2000,
-        iconColor: '#236F6B'
-      })
-    },
+    // showAlert () {
+    //   // Use sweetalert2
+    //   this.$swal.fire({
+    //     position: 'center',
+    //     icon: 'success',
+    //     title: '已加入購物車',
+    //     showConfirmButton: false,
+    //     timer: 2000,
+    //     iconColor: '#236F6B'
+    //   })
+    // },
     favShowAlert () {
       // Use sweetalert2
       this.$swal.fire({
@@ -227,10 +230,7 @@ export default {
         iconColor: '#236F6B'
       })
     },
-    ...mapActions(cartStore, [
-      'getCarts',
-      'addToCart'
-    ])
+    ...mapActions(cartStore, ['getCarts', 'addToCart', 'showAlert'])
     // addToCart (id, qty = 1) {
     //   console.log(id, qty)
     //   // 當沒有傳入該參數時，會使用預設值
