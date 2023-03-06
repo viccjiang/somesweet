@@ -12,7 +12,7 @@
         <tr>
           <th></th>
           <th>品名</th>
-          <th style="width: 100px">數量/單位</th>
+          <th style="width: 100px">數量</th>
           <th class="text-end">單價</th>
           <th></th>
         </tr>
@@ -32,7 +32,7 @@
                   <option :value="i" v-for="i in 20" :key="i + '1234578'">{{ i }}</option>
                 </select>
               </div>
-              <p>{{ item.product.unit }}</p>
+              <!-- <p>{{ item.product.unit }}</p> -->
             </td>
             <td class="text-end">
               <!-- <small class="text-success">折扣價：</small> -->
@@ -70,9 +70,11 @@
       </div>
     </div>
   </div>
+  <DelModal :product="products" ref="delModal" @del-product="deleteItem" />
 </template>
 
 <script>
+import DelModal from '../../components/UserCart/UserCartDelModal.vue'
 import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
 import UserCartStepComponent from '../../components/UserCart/UserCartStepComponent.vue'
@@ -88,7 +90,8 @@ export default {
     }
   },
   components: {
-    UserCartStepComponent
+    UserCartStepComponent,
+    DelModal
   },
   methods: {
     getProducts () {
