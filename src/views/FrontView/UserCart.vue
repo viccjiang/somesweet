@@ -7,7 +7,7 @@
       <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button" @click="deleteAllItem"> <i
           class="bi bi-trash3 text-danger me-2"> </i>清空所有商品</a>
     </div>
-    <table class="table align-middle">
+    <table class="table align-middle table-hover">
       <thead>
         <tr>
           <th></th>
@@ -39,7 +39,7 @@
               {{ item.total }}
             </td>
             <td class=" text-end">
-              <a href="" @click.prevent="deleteItem(item.id)"><i class="bi bi-trash3 text-danger"></i></a>
+              <a href="" @click.prevent="openDelProductModal(item)"><i class="bi bi-trash3 text-danger"></i></a>
               <!-- <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item.id)">
                 x
               </button> -->
@@ -84,7 +84,8 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
     return {
-      products: []
+      products: [],
+      tempProduct: {}
       // cart: {},
       // productId: ''
     }
@@ -105,6 +106,11 @@ export default {
     },
     getProduct (id) {
       this.$router.push(`/product/${id}`)
+    },
+    openDelProductModal (item) {
+      this.tempProduct = { ...item }
+      const delComponent = this.$refs.delModal
+      delComponent.showModal()
     },
     ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders'])
 

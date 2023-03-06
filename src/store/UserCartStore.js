@@ -69,6 +69,8 @@ export default defineStore('cart', {
       axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart/${id}`)
         .then(res => {
           console.log(res)
+          const delComponent = this.$refs.delModal
+          delComponent.hideModal()
           this.getCarts()
         })
     },
