@@ -39,7 +39,7 @@
               {{ item.total }}
             </td>
             <td class=" text-end">
-              <a href="" @click.prevent="openDelProductModal(item)"><i class="bi bi-trash3 text-danger"></i></a>
+              <a href="" @click.prevent="openDelProductModal(item.product)"><i class="bi bi-trash3 text-danger"></i></a>
               <!-- <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item.id)">
                 x
               </button> -->
@@ -70,7 +70,7 @@
       </div>
     </div>
   </div>
-  <DelModal :product="products" ref="delModal" @del-product="deleteItem" />
+  <DelModal :product="tempProduct" ref="delModal" @del-product="deleteItem" />
 </template>
 
 <script>
@@ -109,6 +109,7 @@ export default {
     },
     openDelProductModal (item) {
       this.tempProduct = { ...item }
+      console.log(this.tempProduct)
       const delComponent = this.$refs.delModal
       delComponent.showModal()
     },

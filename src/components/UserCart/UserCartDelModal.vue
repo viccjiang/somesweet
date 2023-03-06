@@ -9,6 +9,7 @@
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        {{  product  }}
         <div class="modal-body">
           是否刪除
           <strong class="text-danger">{{ product.title }}</strong> 商品(刪除後將無法恢復)。
@@ -17,7 +18,7 @@
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-danger" @click="$emit('delProduct')">
+          <button type="button" class="btn btn-danger" @click="deleteItem">
             確認刪除
           </button>
         </div>
@@ -27,14 +28,16 @@
 </template>
 
 <script>
-
+import cartStore from '../../store/UserCartStore'
+import { mapActions } from 'pinia'
 import Modal from 'bootstrap/js/dist/modal'
 
 export default {
   props: ['product'],
   data () {
     return {
-      modal: {}
+      modal: {},
+      id: ''
     }
   },
   methods: {
@@ -43,7 +46,8 @@ export default {
     },
     hideModal () {
       this.modal.hide()
-    }
+    },
+    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders'])
   },
   mounted () {
     this.modal = new Modal(this.$refs.delmodal)
