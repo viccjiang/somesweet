@@ -38,7 +38,8 @@
   <!-- 購物車列表 -->
   <div class="container" v-if="cartsLength > 0">
     <div class="text-end mb-7">
-      <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button" @click="deleteAllItem"> <i
+      <!-- @click="deleteAllItem" -->
+      <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button"  @click="deleteAllItem"> <i
           class="bi bi-trash3 text-danger me-2"> </i>清空所有商品</a>
     </div>
     <table class="table align-middle table-hover">
@@ -58,7 +59,7 @@
               <a href="#" @click.prevent="getProduct(item.product.id)"><img :src="item.product.imageUrl" alt=""
                   class="object-fit d-none d-md-block  rounded-4" style="width:100px ;height:100px"> </a>
             </td>
-            <td>
+            <td >
               <a href="#" class="text-dark d-block" @click.prevent="getProduct(item.product.id)"> {{ item.product.title
               }}</a>
               <!-- <div class="text-success"> 已套用優惠券 </div> -->
@@ -71,7 +72,7 @@
               </div>
               <!-- <p>{{ item.product.unit }}</p> -->
             </td>
-            <td class="text-end">
+            <td class="text-end" >
               <!-- <small class="text-success">折扣價：</small> -->
               {{ item.total }}
             </td>
@@ -98,8 +99,6 @@
         </tr>
       </tfoot>
     </table>
-
-    <!-- test -->
     <!-- 優惠券 -->
     <div class="row justify-content-end">
       <div class="col-12 col-md-5 ">
@@ -114,9 +113,6 @@
         </div>
       </div>
     </div>
-
-    <!-- test -->
-
   </div>
   <div class="container mt-10 mb-10" v-if="cartsLength > 0">
     <div class="row ">
@@ -171,6 +167,10 @@ export default {
       console.log(this.tempProduct)
       this.modal.show()
     },
+    // openAllDelProductModal (item) {
+    //   this.cartData = { ...item }
+    //   this.modal.show()
+    // },
     // 套用優惠券
     addCouponCode () {
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/coupon`

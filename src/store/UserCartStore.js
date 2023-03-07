@@ -80,6 +80,7 @@ export default defineStore('cart', {
         .then(res => {
           console.log(res)
           this.getCarts()
+          this.modal.hide()
         })
     },
     setModal (item) {
