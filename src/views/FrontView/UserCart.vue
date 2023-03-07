@@ -5,22 +5,22 @@
   <div v-if="cartsLength == 0" class="text-center">
     <div class="card border-0 rounded-0 bg-dark text-white">
       <img style="
-                height: 70vh;
-                background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
-                background-size: cover;
-                background-position: center bottom;
-                object-fit: cover;
-                background-attachment: fixed;
-                background-blend-mode: multiply;
-                background-color: rgba(0, 0, 0, 0.6);
-              " />
+                      height: 70vh;
+                      background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
+                      background-size: cover;
+                      background-position: center bottom;
+                      object-fit: cover;
+                      background-attachment: fixed;
+                      background-blend-mode: multiply;
+                      background-color: rgba(0, 0, 0, 0.6);
+                    " />
       <div class="
-                card-img-overlay
-                d-flex
-                flex-column
-                justify-content-center
-                align-item-center
-              ">
+                      card-img-overlay
+                      d-flex
+                      flex-column
+                      justify-content-center
+                      align-item-center
+                    ">
         <h2 class="card-title text-center ">
           購物車是空的 <br />請至 <RouterLink class="text-light fw-bold" to="/products">清晨甜點</RouterLink> 選購
         </h2>
@@ -44,7 +44,7 @@
     <table class="table align-middle table-hover">
       <thead>
         <tr>
-          <th ></th>
+          <th></th>
           <th>品名</th>
           <th style="width: 100px">數量</th>
           <th class="text-end">單價</th>
@@ -54,12 +54,13 @@
       <tbody>
         <template v-if="cartData.carts">
           <tr v-for="item in cartData.carts" :key="item.id">
-            <td  style="width:15%">
+            <td style="width:15%">
               <a href="#" @click.prevent="getProduct(item.product.id)"><img :src="item.product.imageUrl" alt=""
-                    class="object-fit d-none d-md-block  rounded-4" style="width:100px ;height:100px"> </a>
+                  class="object-fit d-none d-md-block  rounded-4" style="width:100px ;height:100px"> </a>
             </td>
             <td>
-              <a href="#" class="text-dark d-block" @click.prevent="getProduct(item.product.id)"> {{ item.product.title }}</a>
+              <a href="#" class="text-dark d-block" @click.prevent="getProduct(item.product.id)"> {{ item.product.title
+              }}</a>
               <!-- <div class="text-success"> 已套用優惠券 </div> -->
             </td>
             <td>
@@ -75,7 +76,7 @@
               {{ item.total }}
             </td>
             <td class=" text-end">
-              <a href="" @click.prevent="openDelProductModal(item.product)"><i class="bi bi-trash3 text-danger"></i></a>
+              <a href="" @click.prevent="openDelProductModal(item)"><i class="bi bi-trash3 text-danger"></i></a>
               <!-- <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item.id)">
                 x
               </button> -->
@@ -144,7 +145,8 @@ export default {
       tempProduct: {},
       // cart: {},
       // productId: ''
-      coupon_code: ''
+      coupon_code: '',
+      id: ''
     }
   },
   components: {
