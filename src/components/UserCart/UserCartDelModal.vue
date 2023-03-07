@@ -9,7 +9,7 @@
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        {{  product  }}
+        {{  product.id  }}
         <div class="modal-body">
           是否刪除
           <strong class="text-danger">{{ product.title }}</strong> 商品(刪除後將無法恢復)。
@@ -18,9 +18,10 @@
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-danger" @click="deleteItem">
+          <button type="button" class="btn btn-danger" @click="deleteItem(product.id)">
             確認刪除
           </button>
+
         </div>
       </div>
     </div>
@@ -36,8 +37,7 @@ export default {
   props: ['product'],
   data () {
     return {
-      modal: {},
-      id: ''
+      modal: {}
     }
   },
   methods: {

@@ -70,7 +70,7 @@
       </div>
     </div>
   </div>
-  <DelModal :product="tempProduct" ref="delModal" @del-product="deleteItem" />
+  <DelModal :product="tempProduct" ref="delModal" id="delModal" @del-product="deleteItem" />
 </template>
 
 <script>
