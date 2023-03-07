@@ -1,4 +1,5 @@
 <template>
+  <UserCartStepComponent ></UserCartStepComponent>
   <!-- 訂單表格 -->
   <div class="bg-light pt-5 pb-7 mt-5">
     <div class="container">
@@ -79,6 +80,7 @@
 <script>
 // import cartStore from '../../store/UserCartStore'
 // import { mapActions, mapState } from 'pinia'
+import UserCartStepComponent from '../../components/UserCart/UserCartStepComponent.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
@@ -89,6 +91,9 @@ export default {
       orderId: ''
       // cart: []
     }
+  },
+  components: {
+    UserCartStepComponent
   },
   methods: {
     getOrder () {

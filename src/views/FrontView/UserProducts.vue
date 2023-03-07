@@ -4,19 +4,19 @@
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                                                height: 200px;
-                                                background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                                                background-size: cover;
-                                                background-position: center center;
-                                                background-attachment: fixed;
-                                              " />
+                                                    height: 200px;
+                                                    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                                                    background-size: cover;
+                                                    background-position: center center;
+                                                    background-attachment: fixed;
+                                                  " />
       <div class="
-                                                card-img-overlay
-                                                d-flex
-                                                flex-column
-                                                justify-content-center
-                                                align-item-center
-                                              ">
+                                                    card-img-overlay
+                                                    d-flex
+                                                    flex-column
+                                                    justify-content-center
+                                                    align-item-center
+                                                  ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -27,7 +27,9 @@
   <div class="container mt-md-5 mt-3 mb-7">
     <div class="row">
       <div class="col-md-3">
-        <div class="accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3" id="accordionExample">
+        <div
+          class="sticky-md-top position-md-sticky accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3"
+          id="accordionExample">
           <div class="card border-0">
             <div
               class="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0"
@@ -58,7 +60,18 @@
         </div>
       </div>
       <div class="col-md-9">
+      <div class="row justify-content-end">
+        <div class="col-12 col-md-6">
+          <!-- 搜尋 -->
+          <div class="input-group  ms-auto mb-4">
+            <input type="search" class="form-control border-primary p-2" @keyup.enter="searchProduct" placeholder="請輸入商品名稱"
+              v-model.trim="this.searchValue">
+            <button type="button" class="btn btn-primary px-5 px-lg-3" @click="searchProduct">搜尋</button>
+          </div>
+        </div>
+      </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+          <!-- 搜尋結束 -->
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
             <div class="product card h-100 p-5 rounded-4 products-img ">
 
@@ -68,21 +81,21 @@
                 class="link-secondary d-block rounded-0">
 
                 <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
-                                fs-1
-                                bi bi-bookmark-heart-fill
-                                position-absolute
-                                top-0
-                                start-15
-                                text-warning
-                              "></i>
+                                    fs-1
+                                    bi bi-bookmark-heart-fill
+                                    position-absolute
+                                    top-0
+                                    start-15
+                                    text-warning
+                                  "></i>
                 <i v-else style="z-index: 1" class="
-                                fs-1
-                                bi bi-bookmark
-                                position-absolute
-                                top-0
-                                start-15
-                                text-white
-                              "></i>
+                                    fs-1
+                                    bi bi-bookmark
+                                    position-absolute
+                                    top-0
+                                    start-15
+                                    text-white
+                                  "></i>
               </a>
               <div class="card-body d-flex flex-column ">
                 <h5 class="fs-6 fw-bold card-title mb-6">{{ product.title }}</h5>
@@ -145,7 +158,8 @@ export default {
       isLoading: false,
       categories: [], // 產品的分類項目
       selectCategory: '', // 選取分類項目按鈕後，selectCategory = item，用 computed 做切換
-      myFavorite: storageMethods.get() || [] // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
+      myFavorite: storageMethods.get() || [], // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
+      searchValue: ''
     }
   },
   methods: {
@@ -208,6 +222,19 @@ export default {
       }
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
+    },
+    searchProduct () {
+      // 取得全部產品
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/products/all`
+      this.$http
+        .get(url)
+        .then((res) => {
+          this.productsAll = res.data.products
+          // 關鍵字搜尋
+          this.productsAll = this.productsAll.filter(item => item.title.trim().match(this.searchValue))
+          console.log(this.productsAll)
+          this.searchValue = ''
+        })
     },
     // showAlert () {
     //   // Use sweetalert2

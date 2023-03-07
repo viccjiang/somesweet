@@ -1,6 +1,6 @@
 <template><!-- banner Swiper -->
-  <div>
-    <swiper class="swiper-position" :slides-per-view="1" :space-between="30" :modules="modules"
+  <div >
+    <swiper class="swiper-position " :slides-per-view="1" :space-between="30" :modules="modules"
       :autoplay="{ delay: 2500, disableOnInteraction: false, }" :loop="true" >
       <swiper-slide>
         <img
@@ -53,7 +53,7 @@ export default {
 <style scoped>
 
 .callToActionBtn {
-  margin-top: 50px;
+  margin-top: 30px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 10px;
@@ -68,7 +68,7 @@ export default {
   color: white;
   z-index: 999;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   /* 以文字中心來跟 banner 做定位 */
 transform: translate(-50%, -50%);

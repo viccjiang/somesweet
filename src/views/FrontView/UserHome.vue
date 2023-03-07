@@ -1,5 +1,12 @@
 <template>
   <GoTop></GoTop>
+  <!-- ScroolDown -->
+  <div class="position-absolute bottom-10 end-50" style="z-index:1000; margin-right:-30px" @click="scroll()" @keydown="enter">
+    <span id="scrollArrow" class="btn fs-3 text-light ">
+      <i class="bi bi-chevron-double-down"></i>
+    </span>
+  </div>
+
   <div class="section1 container-fluid g-0">
     <!-- hero banner -->
     <BannerSwiper></BannerSwiper>
@@ -139,6 +146,12 @@ export default {
           this.article = articles
           console.log(this.article)
         })
+    },
+    scroll () {
+      window.scrollBy({
+        top: window.innerHeight - window.pageYOffset,
+        behavior: 'smooth'
+      })
     }
   },
   components: {
@@ -192,4 +205,26 @@ export default {
 .btn-link:hover {
   border-bottom: 3px solid #034d83;
   transition: 0.4s;
-}</style>
+}
+
+/* Hero 頁尾 scrollDownArrow 動畫 */
+#scrollArrow {
+  animation: pulse 1.8s infinite;
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+</style>

@@ -1,17 +1,21 @@
 <template>
   <div class="container mb-5">
-    <div class="row g-0 ">
-      <ul class="steps row row-cols-4 row-cols-md-4 g-0 mb-4">
-        <li class=""><small class="ls-3">STEP1</small><span>購物車(確認訂單)</span></li>
-        <li class=""><small class="ls-3">STEP1</small><span>建立訂單(填寫資料)</span></li>
-        <li class=""><small class="ls-3">STEP2</small><span>建立訂單(確認付款)</span></li>
-        <li class=""><small class="ls-3">STEP3</small><span>完成訂單</span></li>
-      </ul>
-    </div>
+    <ul class="steps row flex-nowrap  mb-4  ">
+      <li class="col  rounded-4 me-2" :class="{ 'active': this.$route.path === '/cart' }"><small class="ls-3">STEP
+          1</small><span>確認訂單</span></li>
+      <li class="col rounded-4 me-2" :class="{ 'active': this.$route.path === '/checkout' }"><small class="ls-3">STEP
+          2</small><span>填寫資料</span></li>
+      <li class="col rounded-4 me-2" :class="{ 'active': this.$route.name === 'order_payment' }"><small class="ls-3">STEP
+          3</small><span>確認付款</span></li>
+      <li class="col  rounded-4 me-2" :class="{ 'active': this.$route.path === '/order_completed' }"><small class="ls-3">STEP
+          4</small><span>完成訂單</span></li>
+    </ul>
   </div>
 </template>
 
 <script>
+
+console.log(location.pathname)
 
 export default {
   data () {
@@ -32,8 +36,12 @@ export default {
 </script>
 
 <style scoped>
+.cursor {
+  cursor: pointer;
+}
+
 .steps li.active {
-  background: #414666;
+  background: #034d83;
   color: #fff;
 }
 
@@ -42,5 +50,10 @@ export default {
   padding: 1rem;
   text-align: center;
   color: #6c757d;
+
+}
+
+.steps .steps-item{
+  width: 50px;
 }
 </style>

@@ -7,12 +7,12 @@
       <div class="container">
         <div class="row justify-content-center flex-column flex-md-row ">
           <!-- 訂單明細 -->
-          <div class="col-md-5 sticky-lg-top position-lg-sticky h-50 ">
+          <div class="col-md-5 sticky-md-top position-md-sticky h-50 ">
             <div class="border rounded-4 p-4 mb-4 ">
               <h4 class="mb-4">訂單明細</h4>
 
               <div class="d-flex " v-for="item in cartData.carts" :key="item.id">
-                <img :src="item.product.imageUrl" alt="" class="me-2 my-1"
+                <img :src="item.product.imageUrl" alt="" class="me-2 my-1 w-50"
                   style="width: 48px; height: 48px; object-fit: cover">
                 <div class="w-100">
                   <div class="d-flex justify-content-between fw-bold">
@@ -29,11 +29,11 @@
               <table class="table mt-4 border-top border-bottom text-muted ">
                 <tbody>
                   <tr>
-                    <th scope="row" class="border-0 px-0 pt-4 font-weight-normal">Subtotal</th>
+                    <th scope="row" class="border-0 px-0 pt-4 font-weight-normal">原價</th>
                     <td class="text-end border-0 px-0 pt-4"> NT${{ cartData.total }} </td>
                   </tr>
                   <tr>
-                    <th scope="row" class="border-0 px-0 pt-0 pb-4 font-weight-normal">套用優惠券</th>
+                    <th scope="row" class="border-0 px-0 pt-0 pb-4 font-weight-normal">優惠價</th>
                     <td class="text-end border-0 px-0 pt-0 pb-4"> NT${{ cartData.final_total }} </td>
                   </tr>
                 </tbody>
@@ -43,11 +43,19 @@
                 <p class="mb-0 h4 fw-bold">NT${{ cartData.final_total }}</p>
               </div>
             </div>
+            <div class="p-0">
+              <div class="">
+                <div class="d-none d-md-grid ">
+                  <router-link to="/cart" class="btn btn-outline-secondary px-5 mb-5">回上一頁</router-link>
+                  <router-link to="/products" class="btn btn-outline-primary px-5">繼續選購</router-link>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- 表單驗證的部分 -->
           <div class="col-md-7 ">
             <div class="row justify-content-center p-4 ">
-              <h4 class="mb-4">填寫訂購資訊</h4>
+              <h4 class="mb-4 text-center text-md-start">填寫訂購資訊</h4>
               <FormView ref="form" class="border rounded-4 p-10" v-slot="{ errors }" @submit="createOrder">
                 <div class="mb-3 ">
                   <label for="email" class="form-label">Email</label>
@@ -60,7 +68,8 @@
                 <div class="mb-3">
                   <label for="name" class="form-label">收件人姓名</label>
                   <FieldView id="name" name="name" label="姓名" type="text" class="form-control rounded-3"
-                    :class="{ 'is-invalid': errors['name'] }" rules="required" v-model="form.user.name" placeholder="請輸入姓名">
+                    :class="{ 'is-invalid': errors['name'] }" rules="required" v-model="form.user.name"
+                    placeholder="請輸入姓名">
                   </FieldView>
                   <error-message name="name" class="invalid-feedback"></error-message>
                 </div>
@@ -83,8 +92,9 @@
 
                 <div class="mb-3">
                   <label for="address" class="form-label">交易方式</label>
-                  <FieldView id="name" name="trade" label="交易方式" class="form-select rounded-3" :class="{ 'is-invalid': errors['trade'] }"
-                    placeholder="請輸入交易方式" rules="required" v-model="form.user.shipping" as="select">
+                  <FieldView id="name" name="trade" label="交易方式" class="form-select rounded-3"
+                    :class="{ 'is-invalid': errors['trade'] }" placeholder="請輸入交易方式" rules="required"
+                    v-model="form.user.shipping" as="select">
                     <option value="">請選擇交易方式</option>
                     <option value="ATM">ATM</option>
                     <option value="匯款">匯款</option>
@@ -98,8 +108,8 @@
                   <textarea id="message" class="form-control rounded-4" cols="30" rows="10"
                     v-model="form.user.message"></textarea>
                 </div>
-                <div class="text-end">
-                  <button type="submit" class="btn btn-danger mb-5 ">送出訂單</button>
+                <div class="text-end d-grid">
+                  <button type="submit" class="btn btn-danger mb-5 text-white">送出訂單</button>
                 </div>
               </FormView>
             </div>
@@ -127,7 +137,7 @@
         </tr>
       </tbody>
     </table>
-        </div> -->
+          </div> -->
 </template>
 
 <script>

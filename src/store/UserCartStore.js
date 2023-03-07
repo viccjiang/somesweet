@@ -69,11 +69,10 @@ export default defineStore('cart', {
     deleteItem (id) {
       axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart/${id}`)
         .then(res => {
+          console.log(id)
           console.log(res)
-          console.log(this)
-          const delComponent = this.$refs.delModal
-          delComponent.hideModal()
           this.getCarts()
+          this.modal.hide()
         })
     },
     deleteAllItem () {
@@ -82,6 +81,10 @@ export default defineStore('cart', {
           console.log(res)
           this.getCarts()
         })
+    },
+    setModal (item) {
+      this.modal = item
+      console.log(this.modal)
     },
     showAlert () {
       // Use sweetalert2

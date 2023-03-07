@@ -30,14 +30,14 @@
 
 <script>
 import cartStore from '../../store/UserCartStore'
-import { mapActions } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import Modal from 'bootstrap/js/dist/modal'
 
 export default {
   props: ['product'],
   data () {
     return {
-      modal: {}
+      modal: ''
     }
   },
   methods: {
@@ -47,10 +47,14 @@ export default {
     hideModal () {
       this.modal.hide()
     },
-    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders'])
+    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders', 'setModal'])
+  },
+  computed: {
+    ...mapState(cartStore, ['cartData', 'cartsLength'])
   },
   mounted () {
-    this.modal = new Modal(this.$refs.delmodal)
+    // this.modal = new Modal(this.$refs.delmodal)
+    this.setModal(new Modal(this.$refs.delmodal))
   }
 
 }
