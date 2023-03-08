@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/no-parsing-error -->
 <template>
+  <VueLoading :active="isLoading" loader="bars" color="#034D83" />
   <!-- 2. 建立訂單(填寫資料) -->
   <UserCartStepComponent></UserCartStepComponent>
   <div>
@@ -141,6 +142,8 @@
 </template>
 
 <script>
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
 import UserCartStepComponent from '../../components/UserCart/UserCartStepComponent.vue'
@@ -164,7 +167,8 @@ export default {
     }
   },
   components: {
-    UserCartStepComponent
+    UserCartStepComponent,
+    VueLoading
   },
   methods: {
     // getCarts () {
@@ -199,7 +203,7 @@ export default {
     ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem'])
   },
   computed: {
-    ...mapState(cartStore, ['cartData', 'cartsLength'])
+    ...mapState(cartStore, ['cartData', 'cartsLength', 'isLoading'])
   },
   mounted () {
     this.getCarts()

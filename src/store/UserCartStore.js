@@ -9,6 +9,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default defineStore('cart', {
   state: () => {
     return {
+
       cartData: {},
       cartsLength: 0,
       status: {
@@ -25,14 +26,17 @@ export default defineStore('cart', {
       //   message: ''
       // },
       orders: [],
-      modal: ''
+      modal: '',
+      isLoading: false
     }
   },
   actions: {
     getCarts () {
+      this.isLoading = true
       axios
         .get(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`)
         .then((res) => {
+          this.isLoading = false
           this.cartData = res.data.data
           this.cartsLength = this.cartData.carts.length // 購物車 icon 判斷
           console.log(this.cartData, this.cartsLength)

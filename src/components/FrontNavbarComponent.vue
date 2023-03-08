@@ -206,13 +206,13 @@
                   </div>
                 </div>
               </div>
-              <p class="text-center m-0 fs-6 text-danger mb-3">
+              <p class="text-end m-0 fs-6 text-danger mb-3">
                 總計 $ {{ cartData.final_total }} 元
               </p>
               <RouterLink class="btn btn-primary text-center mt-auto text-white
                 p-3
                 d-grid
-                rounded-4
+                rounded-3
               " to="/cart" @click="hideOffcanvas">結帳去</RouterLink>
               <!-- {{ cartData.carts }} -->
             </div>

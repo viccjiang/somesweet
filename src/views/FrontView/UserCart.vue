@@ -1,26 +1,27 @@
 <template>
+  <VueLoading :active="isLoading" loader="bars" color="#034D83" />
   <!-- 1. 購物車(確認訂單) -->
   <UserCartStepComponent v-if="cartsLength > 0"></UserCartStepComponent>
   <!-- 購物車列表沒東西 -->
   <div v-if="cartsLength == 0" class="text-center">
     <div class="card border-0 rounded-0 bg-dark text-white">
       <img style="
-                      height: 70vh;
-                      background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
-                      background-size: cover;
-                      background-position: center bottom;
-                      object-fit: cover;
-                      background-attachment: fixed;
-                      background-blend-mode: multiply;
-                      background-color: rgba(0, 0, 0, 0.6);
-                    " />
+                          height: 70vh;
+                          background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
+                          background-size: cover;
+                          background-position: center bottom;
+                          object-fit: cover;
+                          background-attachment: fixed;
+                          background-blend-mode: multiply;
+                          background-color: rgba(0, 0, 0, 0.6);
+                        " />
       <div class="
-                      card-img-overlay
-                      d-flex
-                      flex-column
-                      justify-content-center
-                      align-item-center
-                    ">
+                          card-img-overlay
+                          d-flex
+                          flex-column
+                          justify-content-center
+                          align-item-center
+                        ">
         <h2 class="card-title text-center ">
           購物車是空的 <br />請至 <RouterLink class="text-light fw-bold" to="/products">清晨甜點</RouterLink> 選購
         </h2>
@@ -39,8 +40,8 @@
   <div class="container" v-if="cartsLength > 0">
     <div class="text-end mb-7">
       <!-- @click="deleteAllItem" -->
-      <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button"  @click="deleteAllItem"> <i
-          class="bi bi-trash3 text-danger me-2"> </i>清空所有商品</a>
+      <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button"
+        @click="openAllDelProductModal(cartData)"> <i class="bi bi-trash3 text-danger me-2"> </i>清空所有商品</a>
     </div>
     <table class="table align-middle table-hover">
       <thead>
@@ -59,7 +60,7 @@
               <a href="#" @click.prevent="getProduct(item.product.id)"><img :src="item.product.imageUrl" alt=""
                   class="object-fit d-none d-md-block  rounded-4" style="width:100px ;height:100px"> </a>
             </td>
-            <td >
+            <td>
               <a href="#" class="text-dark d-block" @click.prevent="getProduct(item.product.id)"> {{ item.product.title
               }}</a>
               <!-- <div class="text-success"> 已套用優惠券 </div> -->
@@ -72,7 +73,7 @@
               </div>
               <!-- <p>{{ item.product.unit }}</p> -->
             </td>
-            <td class="text-end" >
+            <td class="text-end">
               <!-- <small class="text-success">折扣價：</small> -->
               {{ item.total }}
             </td>
@@ -123,10 +124,12 @@
       </div>
     </div>
   </div>
-  <DelModal :product="tempProduct" ref="delModal" id="delModal" @del-product="deleteItem" />
+  <DelModal :product="tempProduct" :cartData="tempCart" ref="delModal" id="delModal" @del-product="deleteItem" />
 </template>
 
 <script>
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 import DelModal from '../../components/UserCart/UserCartDelModal.vue'
 import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
@@ -139,15 +142,18 @@ export default {
     return {
       products: [],
       tempProduct: {},
+      tempCart: {},
       // cart: {},
       // productId: ''
       coupon_code: '',
       id: ''
+      // isLoading: false
     }
   },
   components: {
     UserCartStepComponent,
-    DelModal
+    DelModal,
+    VueLoading
   },
   methods: {
     getProducts () {
@@ -167,10 +173,11 @@ export default {
       console.log(this.tempProduct)
       this.modal.show()
     },
-    // openAllDelProductModal (item) {
-    //   this.cartData = { ...item }
-    //   this.modal.show()
-    // },
+    openAllDelProductModal (item) {
+      this.tempCart = { ...item }
+      console.log(this.cartData)
+      this.modal.show()
+    },
     // 套用優惠券
     addCouponCode () {
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/coupon`
@@ -189,7 +196,7 @@ export default {
 
   },
   computed: {
-    ...mapState(cartStore, ['cartData', 'cartsLength', 'modal'])
+    ...mapState(cartStore, ['cartData', 'cartsLength', 'modal', 'isLoading'])
   },
   mounted () {
     this.getProducts()

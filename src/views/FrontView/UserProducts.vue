@@ -47,11 +47,14 @@
                   @click.prevent="selectCategory = ''; this.$route.params.selectCategory = '';">
                   <i class="bi bi-dash-lg"></i> 全部商品
                 </a>
-                <ul class="list-unstyled">
-                  <li><a href="#" v-for="item in categories" :key="item"
-                      class="list-group-item list-group-item-action rounded-0 p-3"
-                      @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;"><i
-                        class="bi bi-dash-lg"></i> {{ item }}</a>
+                <ul class="list-unstyled ">
+                  <li class="selectCategory " >
+                    <!-- :class="{ active: this.$route.params.selectCategory = item }" -->
+                    <a href="#" v-for="item in categories" :key="item"
+                        class="list-group-item list-group-item-action rounded-0 p-3 "
+                        @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;">
+                        <i class="bi bi-dash-lg" ></i> {{ item }}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -386,5 +389,6 @@ export default {
     opacity: 1;
     transform: translate(-50%)
   }
+
 }
 </style>
