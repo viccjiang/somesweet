@@ -2,7 +2,7 @@
   <div @click="goTop">
     <div class="position-fixed end-0  bottom-5  cursor-pointer" style="z-index:100"
       :class="yScrollVaule < 50 ? 'd-none' : ''">
-        <i class="bi bi-arrow-up-circle-fill px-5 px-md-10 py-2 rounded-1 fs-1 text-primary" style="opacity:0.5"></i>
+        <i class="bi bi-arrow-up-circle-fill px-5 px-md-10 py-2 rounded-1 fs-1 text-primary" style="opacity:1"></i>
     </div>
   </div>
 </template>

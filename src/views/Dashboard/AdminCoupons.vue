@@ -19,7 +19,7 @@
         <tr v-for="(item, key) in coupons" :key="key">
           <td>{{ item.title }}</td>
           <td>{{ item.percent }}%</td>
-          <td>{{ item.due_date }}</td>
+          <td>{{ dateTranslate(item.due_date) }}</td>
           <td>
             <span v-if="item.is_enabled === 1" class="text-success">啟用</span>
             <span v-else-if="item.is_enabled === 0" class="text-muted">未啟用</span>
@@ -132,6 +132,10 @@ export default {
           this.$refs.delCouponModal.hideModal()
           this.getCoupons()
         })
+    },
+    dateTranslate (time) {
+      const localDate = new Date(time * 1000)
+      return localDate.toLocaleDateString()
     }
   },
   mounted () {

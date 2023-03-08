@@ -1,4 +1,5 @@
 <template>
+
   <GoTop></GoTop>
   <!-- ScroolDown -->
   <div class="position-absolute bottom-10 end-50" style="z-index:1000; margin-right:-30px" @click="scroll()" @keydown="enter">
@@ -11,6 +12,7 @@
     <!-- hero banner -->
     <BannerSwiper></BannerSwiper>
   </div>
+
   <div class="container-fluid mb-10">
     <div class="row justify-content-center align-items-center bg-light">
       <div class="col-8 py-18">
@@ -80,7 +82,7 @@
               <div class="col-md-6">
                 <div class="card-body h-100 d-flex flex-column ">
                   <h5 class="card-title">{{ article[0]?.title }}</h5>
-                  <p class="card-text">{{ article[0]?.create_at }}</p>
+                  <p class="card-text">{{ dateTranslate(article[0]?.create_at) }}</p>
                   <p class="card-text"><small class="text-muted">作者 : {{ article[0]?.author }}</small></p>
                   <RouterLink :to="`/blog/${article[0]?.id}`" class="stretched-link ">查看文章</RouterLink>
                   <div
@@ -101,7 +103,7 @@
               <div class="col-md-6 ">
                 <div class="card-body h-100 d-flex flex-column">
                   <h5 class="card-title">{{ article[1]?.title }}</h5>
-                  <p class="card-text">{{ article[1]?.create_at }}</p>
+                  <p class="card-text">{{ dateTranslate(article[1]?.create_at) }}</p>
                   <p class="card-text"><small class="text-muted">作者 : {{ article[1]?.author }}</small></p>
                   <RouterLink :to="`/blog/${article[1]?.id}`" class="stretched-link">查看文章</RouterLink>
                   <!-- <a href="#" >Go somewhere</a> -->
@@ -123,12 +125,16 @@
     </div>
     <RecommendSwiper></RecommendSwiper>
   </div>
+  <CouponCopy ref="coupon"></CouponCopy>
+  <div class="bg-warning position-absolute position-fixed bottom-25 left-10 writing-mode rounded-3 p-4" style="margin-left:-10px"><a href="" @click.prevent="showToast()" class="text-bk-bread p-5">領 取 優 惠 碼</a></div>
+
 </template>
 
 <script>
 import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
 import RecommendSwiper from '../../components/UserHome/RecommendSwiper.vue'
 import GoTop from '../../components/GoTop.vue'
+import CouponCopy from '../../components/UserHome/CouponCopy.vue'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -152,12 +158,20 @@ export default {
         top: window.innerHeight - window.pageYOffset,
         behavior: 'smooth'
       })
+    },
+    dateTranslate (time) {
+      const localDate = new Date(time * 1000)
+      return localDate.toLocaleDateString()
+    },
+    showToast () {
+      this.$refs.coupon.showCoupon()
     }
   },
   components: {
     BannerSwiper,
     RecommendSwiper,
-    GoTop
+    GoTop,
+    CouponCopy
   },
   mounted () {
     this.getArticles()
@@ -166,6 +180,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.writing-mode{
+  writing-mode: vertical-rl
+}
+
 .intro-img {
   width: 100%;
   height: 200px;

@@ -1,8 +1,5 @@
 <template>
-  <!-- 1. 購物車(確認訂單) -->
-  <div></div>
-  <GoTop></GoTop>
-  <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5" style="width:300px" data-bs-autohide="false">
+  <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5 position-absolute position-fixed bottom-5 left-10" style="width:300px;z-index:1999" data-bs-autohide="true">
     <div class="toast-header">
       <img src="" class="rounded me-2" alt="">
       <strong class="me-auto">領取優惠碼</strong>
@@ -20,27 +17,16 @@
       </div>
     </div>
   </div>
-  <div class="">
-
-    <PopoverComponent></PopoverComponent>
-    <p>cart</p>
-  </div>
 </template>
 
 <script>
 import Toast from 'bootstrap/js/dist/toast'
-import PopoverComponent from '../../components/PopoverComponent.vue'
-import GoTop from '../../components/GoTop.vue'
 
 export default {
   data () {
     return {
       toast: ''
     }
-  },
-  components: {
-    PopoverComponent,
-    GoTop
   },
   methods: {
     copyCouponCode () {
@@ -68,12 +54,15 @@ export default {
         icon: 'success',
         title: '優惠碼複製成功'
       })
+    },
+    showCoupon () {
+      this.toast.show()
     }
   },
   mounted () {
     this.copyCouponCode()
     this.toast = new Toast(this.$refs.coupon)
-    this.toast.show()
+    this.showCoupon()
   }
 }
 </script>

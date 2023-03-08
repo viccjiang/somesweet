@@ -312,6 +312,8 @@ $bk-gray:       $gray-600;
 $bk-orange:     #fc741e;
 $bk-yellow:     #ffb900;
 $bk-red:        #fbbbbc;
+$bk-bread:        #908055;
+
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -329,6 +331,7 @@ $theme-colors: (
   "bk-orange":  $bk-orange,
   "bk-yellow":  $bk-yellow,
   "bk-red":     $bk-red,
+  "bk-bread":   $bk-bread ,
 ) !default;
 // scss-docs-end theme-colors-map
 

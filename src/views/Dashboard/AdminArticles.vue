@@ -21,24 +21,23 @@
           <td>{{ article.title }}</td>
           <td>{{ article.author }}</td>
           <td>{{ article.description }}</td>
-          <td>{{ article.create_at }}</td>
+          <td>{{ dateTranslate(article.create_at) }}</td>
           <td>
             <span v-if="article.isPublic">已上架</span>
             <span v-else>未上架</span>
           </td>
           <td>
-              <button class="btn btn-outline-primary btn-sm me-1 mb-1" type="button" @click="getArticle(article.id)">
-                <i
-                class="bi bi-pencil-square"></i></button>
-              <button class="btn btn-outline-danger btn-sm me-1 mb-1" type="button"  @click="openDelArticleModal(article)">
-                <i
-                class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-outline-primary btn-sm me-1 mb-1" type="button" @click="getArticle(article.id)">
+              <i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-outline-danger btn-sm me-1 mb-1" type="button" @click="openDelArticleModal(article)">
+              <i class="bi bi-trash3-fill"></i></button>
           </td>
         </tr>
       </tbody>
     </table>
-    <ArticleModal ref="articleModal" :article="tempArticle" :is-new="isNew" @update-article="updateArticle" ></ArticleModal>
-    <ArticleDelModal ref="delModal" :article="tempArticle"  @del-article="delArticle" />
+    <ArticleModal ref="articleModal" :article="tempArticle" :is-new="isNew" @update-article="updateArticle">
+    </ArticleModal>
+    <ArticleDelModal ref="delModal" :article="tempArticle" @del-article="delArticle" />
   </div>
 </template>
 
@@ -127,8 +126,11 @@ export default {
           this.$refs.delModal.hideModal()
           this.getArticles(this.page)
         })
+    },
+    dateTranslate (time) {
+      const localDate = new Date(time * 1000)
+      return localDate.toLocaleDateString()
     }
-
   },
   mounted () {
     this.getArticles()

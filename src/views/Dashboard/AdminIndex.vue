@@ -71,8 +71,8 @@
               </div>
             </div>
             <div class="col-4 text-end">
-              <h5 class="font-weight-bolder mb-0">
-                {{ Object.keys(orders).length }}
+              <h5 class="font-weight-bolder mb-0" v-for="i in orders" :key="i.id">
+                {{ i.is_paid }}
                 <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
               </h5>
               <!-- <p><i class="bi bi-list-ol"></i></p> -->

@@ -115,6 +115,8 @@ export default {
 .swiper-button-prev {
   position: absolute;
   top: var(--swiper-navigation-top-offset, 50%);
+  /* left: 800px; */
+  /* right:300px; */
   width: 40px;
   height: 40px;
   margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));

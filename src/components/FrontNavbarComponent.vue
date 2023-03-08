@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg d-flex flex-wrap justify-content-center align-items-center">
+  <nav class="navbar navbar-expand-lg d-flex flex-wrap justify-content-center align-items-center mt-5">
     <!-- logo -->
     <div class="container-fluid d-flex flex-row flex-lg-column justify-content-center align-items-center">
       <RouterLink to="/">
@@ -91,15 +91,15 @@
           <a href="" class="nav-link position-relative" @click.prevent="showOffcanvas">
             <i class="bi bi-cart2"></i>
             <div class="
-                            translate-middle
-                            badge
-                            rounded-pill
-                            bg-danger
-                            text-light
-                            position-absolute
-                            top-10
-                            start-100
-                          " style="font-size: 10px" v-if="cartsLength != 0">
+                                translate-middle
+                                badge
+                                rounded-pill
+                                bg-danger
+                                text-light
+                                position-absolute
+                                top-10
+                                start-100
+                              " style="font-size: 10px" v-if="cartsLength != 0">
               <!-- 購物車品項數量 (不重複) -->
               <!-- {{ cartData.carts.length }} -->
               <!-- 購物車品項數量總數 (重複) -->
@@ -130,17 +130,17 @@
                     </div>
                     <!-- 連到細節頁面 -->
                     <a href="#" @click.prevent="getProduct(item.product_id)" class="
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                      link-soft
-                    ">
+                          d-flex
+                          align-items-center
+                          justify-content-center
+                          link-soft
+                        ">
                       <div class="col-2 mb-2 me-2" style="
-                        height: 50px;
-                        width: 50px;
-                        background-size: cover;
-                        background-position: center;
-                      " :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
+                            height: 50px;
+                            width: 50px;
+                            background-size: cover;
+                            background-position: center;
+                          " :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
                         <!-- {{item.product.imageUrl}} -->
                       </div>
                       <div class="col fs-6 fw-normal text-start">
@@ -151,20 +151,20 @@
                   <div class="border-top d-flex justify-content-center bg-light">
                     <div class="col d-flex flex-column ms-auto">
                       <div class="
-                        price
-                        d-flex
-                        justify-content-md-between
-                        flex-column flex-nowrap flex-md-row
-                      ">
+                            price
+                            d-flex
+                            justify-content-md-between
+                            flex-column flex-nowrap flex-md-row
+                          ">
                         <!-- 數量 -->
                         <div class="
-                          input-group
-                          product-num-group
-                          bg-light
-                          mt-1
-                          mb-4
-                          my-md-0
-                        ">
+                              input-group
+                              product-num-group
+                              bg-light
+                              mt-1
+                              mb-4
+                              my-md-0
+                            ">
                           <!-- 減 -->
                           <div>
                             <button @click="updateCartItem(item, item.qty--)" class="btn border-0 bg-light" type="button">
@@ -173,14 +173,14 @@
                           </div>
                           <!-- 數量 -->
                           <input type="text" class="
-                            form-control
-                            border-0
-                            text-center
-                            my-auto
-                            shadow-none
-                            bg-light
-                            border
-                          " aria-describedby="button-addon1" v-model.lazy="item.qty" />
+                                form-control
+                                border-0
+                                text-center
+                                my-auto
+                                shadow-none
+                                bg-light
+                                border
+                              " aria-describedby="button-addon1" v-model.lazy="item.qty" />
                           <!-- 加 -->
                           <div>
                             <button @click="updateCartItem(item, item.qty++)" class="btn border-0" type="button">
@@ -191,46 +191,47 @@
                       </div>
                     </div>
                     <div class="
-                      col
-                      d-flex
-                      flex-column
-                      ms-auto
-                      text-end
-                      fs-7
-                      text-secondary
-                      align-items-end
-                      justify-content-center
-                    ">
-                      ${{ item.final_total }}
+                          col
+                          d-flex
+                          flex-column
+                          ms-auto
+                          text-end
+                          fs-7
+                          text-secondary
+                          align-items-end
+                          justify-content-center
+                        ">
+                      ${{ toThousands(item.final_total) }}
                     </div>
                   </div>
                 </div>
               </div>
               <p class="text-end m-0 fs-6 text-danger mb-3">
-                總計 $ {{ cartData.final_total }} 元
+                總計 $ {{ toThousands(cartData.final_total) }} 元
               </p>
               <RouterLink class="btn btn-primary text-center mt-auto text-white
-                p-3
-                d-grid
-                rounded-3
-              " to="/cart" @click="hideOffcanvas">結帳去</RouterLink>
+                    p-3
+                    d-grid
+                    rounded-3
+
+                  " to="/cart" @click="hideOffcanvas">結帳去</RouterLink>
               <!-- {{ cartData.carts }} -->
             </div>
           </div>
           <div v-else class="
-            offcanvas-body
-            d-flex
-            flex-column
-            align-items-center
-            justify-content-center
-          ">
+                offcanvas-body
+                d-flex
+                flex-column
+                align-items-center
+                justify-content-center
+              ">
             <div class="
-              text-center
-              d-flex
-              flex-column
-              align-items-center
-              justify-content-center
-            ">
+                  text-center
+                  d-flex
+                  flex-column
+                  align-items-center
+                  justify-content-center
+                ">
               <p class="m-0">你的購物車沒有商品</p>
               <div class="d-flex align-items-center justify-content-center">
                 <RouterLink to="/"><button type="button" class="btn btn-outline-secondary m-2">
@@ -294,7 +295,7 @@ export default {
         this.isLoading = false
       })
     },
-    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders', 'setModal']),
+    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'createOrder', 'getOrders', 'setModal', 'toThousands']),
     showOffcanvas () {
       this.offcanvas.show()
     },
@@ -319,6 +320,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .translate-middle {
   transform: translate(-47%, -15%) !important;
 }

@@ -1,6 +1,7 @@
 <template><!-- banner Swiper -->
   <div >
-    <swiper class="swiper-position " :slides-per-view="1" :space-between="30" :modules="modules"
+  <!-- :space-between="30" -->
+    <swiper class="swiper-position " :slides-per-view="1"  :modules="modules"
       :autoplay="{ delay: 2500, disableOnInteraction: false, }" :loop="true" >
       <swiper-slide>
         <img

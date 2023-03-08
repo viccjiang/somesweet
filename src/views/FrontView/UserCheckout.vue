@@ -21,8 +21,8 @@
                     <p class="mb-0">x {{ item.qty }}</p>
                   </div>
                   <div class="d-flex justify-content-between ">
-                    <p class="text-muted mb-0"><small>NT${{ item.product.price }}</small></p>
-                    <p class="mb-0">NT${{ item.final_total }}</p>
+                    <p class="text-muted mb-0"><small>NT${{ toThousands(item.product.price) }}</small></p>
+                    <p class="mb-0">NT${{ toThousands(item.final_total) }}</p>
                   </div>
                 </div>
               </div>
@@ -31,17 +31,17 @@
                 <tbody>
                   <tr>
                     <th scope="row" class="border-0 px-0 pt-4 font-weight-normal">原價</th>
-                    <td class="text-end border-0 px-0 pt-4"> NT${{ cartData.total }} </td>
+                    <td class="text-end border-0 px-0 pt-4"> NT${{ toThousands(cartData.total) }} </td>
                   </tr>
                   <tr>
                     <th scope="row" class="border-0 px-0 pt-0 pb-4 font-weight-normal">優惠價</th>
-                    <td class="text-end border-0 px-0 pt-0 pb-4"> NT${{ cartData.final_total }} </td>
+                    <td class="text-end border-0 px-0 pt-0 pb-4"> NT${{ toThousands(cartData.final_total) }} </td>
                   </tr>
                 </tbody>
               </table>
               <div class="d-flex justify-content-between mt-4">
                 <p class="mb-0 h4 fw-bold">Total</p>
-                <p class="mb-0 h4 fw-bold">NT${{ cartData.final_total }}</p>
+                <p class="mb-0 h4 fw-bold">NT${{ toThousands(cartData.final_total) }}</p>
               </div>
             </div>
             <div class="p-0">
@@ -200,7 +200,7 @@ export default {
         alert(err.data.message)
       })
     },
-    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem'])
+    ...mapActions(cartStore, ['addToCart', 'getCarts', 'updateCartItem', 'deleteItem', 'deleteAllItem', 'toThousands'])
   },
   computed: {
     ...mapState(cartStore, ['cartData', 'cartsLength', 'isLoading'])

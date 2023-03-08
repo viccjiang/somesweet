@@ -4,19 +4,19 @@
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                                                    height: 200px;
-                                                    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                                                    background-size: cover;
-                                                    background-position: center center;
-                                                    background-attachment: fixed;
-                                                  " />
+                                                        height: 200px;
+                                                        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                                                        background-size: cover;
+                                                        background-position: center center;
+                                                        background-attachment: fixed;
+                                                      " />
       <div class="
-                                                    card-img-overlay
-                                                    d-flex
-                                                    flex-column
-                                                    justify-content-center
-                                                    align-item-center
-                                                  ">
+                                                        card-img-overlay
+                                                        d-flex
+                                                        flex-column
+                                                        justify-content-center
+                                                        align-item-center
+                                                      ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -48,12 +48,12 @@
                   <i class="bi bi-dash-lg"></i> 全部商品
                 </a>
                 <ul class="list-unstyled ">
-                  <li class="selectCategory " >
+                  <li class="selectCategory ">
                     <!-- :class="{ active: this.$route.params.selectCategory = item }" -->
                     <a href="#" v-for="item in categories" :key="item"
-                        class="list-group-item list-group-item-action rounded-0 p-3 "
-                        @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;">
-                        <i class="bi bi-dash-lg" ></i> {{ item }}
+                      class="list-group-item list-group-item-action rounded-0 p-3 "
+                      @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;">
+                      <i class="bi bi-dash-lg"></i> {{ item }}
                     </a>
                   </li>
                 </ul>
@@ -63,16 +63,16 @@
         </div>
       </div>
       <div class="col-md-9">
-      <div class="row justify-content-end">
-        <div class="col-12 col-md-6">
-          <!-- 搜尋 -->
-          <div class="input-group  ms-auto mb-4">
-            <input type="search" class="form-control border-primary p-2" @keyup.enter="searchProduct" placeholder="請輸入商品名稱"
-              v-model.trim="this.searchValue">
-            <button type="button" class="btn btn-primary px-5 px-lg-3" @click="searchProduct">搜尋</button>
+        <div class="row justify-content-end">
+          <div class="col-12 col-md-6">
+            <!-- 搜尋 -->
+            <div class="input-group  ms-auto mb-4">
+              <input type="search" class="form-control border-primary p-2" @keyup.enter="searchProduct"
+                placeholder="請輸入商品名稱" v-model.trim="this.searchValue">
+              <button type="button" class="btn btn-primary px-5 px-lg-3" @click="searchProduct">搜尋</button>
+            </div>
           </div>
         </div>
-      </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           <!-- 搜尋結束 -->
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
@@ -84,27 +84,27 @@
                 class="link-secondary d-block rounded-0">
 
                 <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
-                                    fs-1
-                                    bi bi-bookmark-heart-fill
-                                    position-absolute
-                                    top-0
-                                    start-15
-                                    text-warning
-                                  "></i>
+                                        fs-1
+                                        bi bi-bookmark-heart-fill
+                                        position-absolute
+                                        top-0
+                                        start-15
+                                        text-warning
+                                      "></i>
                 <i v-else style="z-index: 1" class="
-                                    fs-1
-                                    bi bi-bookmark
-                                    position-absolute
-                                    top-0
-                                    start-15
-                                    text-white
-                                  "></i>
+                                        fs-1
+                                        bi bi-bookmark
+                                        position-absolute
+                                        top-0
+                                        start-15
+                                        text-white
+                                      "></i>
               </a>
               <div class="card-body d-flex flex-column ">
                 <h5 class="fs-6 fw-bold card-title mb-6">{{ product.title }}</h5>
                 <!-- <p class="card-text text-truncate mb-6">{{ product.content }}</p> -->
                 <div class="d-flex mt-auto">
-                  <span class="text-muted fs-xs me-auto"><del>NT${{ product.origin_price }} </del></span>
+                  <span class="text-muted fs-xs me-auto"><del>NT${{ toThousands(product.origin_price) }} </del></span>
                   <p class="card-text mb-0 ">${{ product.price }} </p> <span
                     class="fs-xs d-flex align-items-end ms-1">NTD</span>
                 </div>
@@ -166,6 +166,7 @@ export default {
     }
   },
   methods: {
+
     getAllProducts (page) {
       this.isLoading = true
       this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/products/all`)
@@ -238,6 +239,10 @@ export default {
           console.log(this.productsAll)
           this.searchValue = ''
         })
+    },
+    toThousands (num) {
+      const n = parseInt(num, 10)
+      return `${n.toFixed(0).replace(/./g, (c, i, a) => (i && c !== '.' && ((a.length - i) % 3 === 0) ? `, ${c}`.replace(/\s/g, '') : c))}`
     },
     // showAlert () {
     //   // Use sweetalert2

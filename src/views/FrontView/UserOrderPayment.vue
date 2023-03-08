@@ -8,13 +8,13 @@
           <div class="border rounded-4 p-4 mb-4 ">
             <div class="d-flex justify-content-between">
               <h4 class="mb-4 ">訂購資訊</h4>
-              <button type="button" class="btn btn-outline-primary">複製訂單編號</button>
+              <button type="button" id="orderSave" class="btn btn-outline-primary" @click="copyCouponCode(order.id)">複製訂單編號</button>
             </div>
             <table class="table align-middle">
               <thead>
                 <tr class="align-middle ">
                   <th scope="col">訂購編號</th>
-                  <th scope="col"><span>{{ order.id }} </span></th>
+                  <th scope="col" id="orderId"><span>{{ order.id }} </span></th>
                 </tr>
               </thead>
               <tbody>
@@ -126,11 +126,23 @@ export default {
           // this.getCarts()
         }
       })
+    },
+    copyCouponCode (item) {
+      // 舊的寫法已淘汰 execCommand
+      // 新的寫法 navigator.clipboard
+      const select = (DOM) => document.querySelector(DOM)
+      select('#orderSave').addEventListener('click', () => {
+        navigator.clipboard.writeText(select('#orderId').textContent)
+        // this.showAlert()
+      })
     }
   },
   created () {
     this.orderId = this.$route.params.orderId
     this.getOrder()
+  },
+  mounted () {
+    this.copyCouponCode()
   }
 }
 

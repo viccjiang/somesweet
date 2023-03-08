@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-bk-lighter text-dark">
+  <footer class="bg-bk-lighter text-bk-gray">
     <div class="container row g-0 mx-auto fs-6 ls-2 text-center">
-      <nav class="nav-item mb-4 d-none d-md-inline-block">
+      <nav class="nav-item mb-10 d-none d-md-inline-block">
         <ul class="row justify-content-between list-unstyled m-0 mt-5">
           <li class="navhover col-md-2 p-1 col-lg-2">
             <RouterLink to="/" class="nav-link px-2 py-5">
@@ -50,7 +50,7 @@
           </li>
         </ul>
       </nav>
-      <div class="pt-3 pt-md-0 my-5">
+      <div class="pt-5 pt-md-0 my-5">
         <RouterLink to="/">
         <a class="d-flex navbar-brand justify-content-center align-items-center" href="#">
           <img src="../assets/Vector.svg" alt="Logo" width="" height="" class="d-inline-block align-text-top me-3">
@@ -115,7 +115,7 @@
     right: 50%;
     left: 50%;
     bottom: -5px;
-    border-bottom: 3px solid #000000;
+    border-bottom: 3px solid #034d83;
     transition: 0.3s;
   }
   .navhover :hover::after {
