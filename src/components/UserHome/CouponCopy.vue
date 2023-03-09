@@ -62,7 +62,7 @@ export default {
   mounted () {
     this.copyCouponCode()
     this.toast = new Toast(this.$refs.coupon)
-    this.showCoupon()
+    // this.showCoupon()
   }
 }
 </script>

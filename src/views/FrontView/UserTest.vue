@@ -1,5 +1,6 @@
 <template>
   <!-- 1. 購物車(確認訂單) -->
+  <RecommendProductsSwiper></RecommendProductsSwiper>
   <div></div>
   <GoTop></GoTop>
   <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5" style="width:300px" data-bs-autohide="false">
@@ -31,6 +32,7 @@
 import Toast from 'bootstrap/js/dist/toast'
 import PopoverComponent from '../../components/PopoverComponent.vue'
 import GoTop from '../../components/GoTop.vue'
+import RecommendProductsSwiper from '../../components/UserHome/RecommendProductsSwiper.vue'
 
 export default {
   data () {
@@ -40,7 +42,8 @@ export default {
   },
   components: {
     PopoverComponent,
-    GoTop
+    GoTop,
+    RecommendProductsSwiper
   },
   methods: {
     copyCouponCode () {

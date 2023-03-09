@@ -4,19 +4,19 @@
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                                                        height: 200px;
-                                                        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                                                        background-size: cover;
-                                                        background-position: center center;
-                                                        background-attachment: fixed;
-                                                      " />
+                                                          height: 200px;
+                                                          background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                                                          background-size: cover;
+                                                          background-position: center center;
+                                                          background-attachment: fixed;
+                                                        " />
       <div class="
-                                                        card-img-overlay
-                                                        d-flex
-                                                        flex-column
-                                                        justify-content-center
-                                                        align-item-center
-                                                      ">
+                                                          card-img-overlay
+                                                          d-flex
+                                                          flex-column
+                                                          justify-content-center
+                                                          align-item-center
+                                                        ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -30,7 +30,7 @@
         <div
           class="sticky-md-top position-md-sticky accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3"
           id="accordionExample">
-          <div class="card border-0">
+          <div class="card border-0 card-hover">
             <div
               class="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0"
               id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne">
@@ -42,21 +42,28 @@
               </div>
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="card-body py-0">
+              <div class="card-body py-0 p-0">
                 <a href="#" class="list-group-item list-group-item-action rounded-0 p-3"
                   @click.prevent="selectCategory = ''; this.$route.params.selectCategory = '';">
                   <i class="bi bi-dash-lg"></i> 全部商品
                 </a>
-                <ul class="list-unstyled ">
+                <div class="list-unstyled list-group b">
+                  <a href="#" v-for="item in categories" :key="item"
+                    class="list-group-item list-group-item-action rounded-0 p-3 border-0"
+                    :class="{ active: selectCategory === item }"
+                    @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;">
+                    <i class="bi bi-dash-lg"></i> {{ item }}
+                  </a>
+                </div>
+                <!-- <ul class="list-unstyled ">
                   <li class="selectCategory ">
-                    <!-- :class="{ active: this.$route.params.selectCategory = item }" -->
                     <a href="#" v-for="item in categories" :key="item"
                       class="list-group-item list-group-item-action rounded-0 p-3 "
                       @click.prevent="selectCategory = item; this.$route.params.selectCategory = item;">
                       <i class="bi bi-dash-lg"></i> {{ item }}
                     </a>
                   </li>
-                </ul>
+                </ul> -->
               </div>
             </div>
           </div>
@@ -77,28 +84,30 @@
           <!-- 搜尋結束 -->
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
             <div class="product card h-100 p-5 rounded-4 products-img ">
-
-              <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative"
+              <div class="overflow-hidden rounded-4">
+                <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 position-relative card-imageUrl "
                 :alt="product.title">
+              </div>
+
               <a href="#" @click.prevent="addMyFavorite(product)" :class="{ active: myFavorite.includes(product.id) }"
                 class="link-secondary d-block rounded-0">
 
                 <i v-if="myFavorite.includes(product.id)" style="z-index: 1" class="
-                                        fs-1
-                                        bi bi-bookmark-heart-fill
-                                        position-absolute
-                                        top-0
-                                        start-15
-                                        text-warning
-                                      "></i>
+                                          fs-1
+                                          bi bi-bookmark-heart-fill
+                                          position-absolute
+                                          top-0
+                                          start-15
+                                          text-warning
+                                        "></i>
                 <i v-else style="z-index: 1" class="
-                                        fs-1
-                                        bi bi-bookmark
-                                        position-absolute
-                                        top-0
-                                        start-15
-                                        text-white
-                                      "></i>
+                                          fs-1
+                                          bi bi-bookmark
+                                          position-absolute
+                                          top-0
+                                          start-15
+                                          text-white
+                                        "></i>
               </a>
               <div class="card-body d-flex flex-column ">
                 <h5 class="fs-6 fw-bold card-title mb-6">{{ product.title }}</h5>
@@ -395,5 +404,29 @@ export default {
     transform: translate(-50%)
   }
 
+}
+.hover-color:hover{
+  color: white;
+}
+.object-fit{
+  object-fit:cover;
+}
+.img-card {
+  width: 100%;
+  overflow: hidden;
+}
+.card-imageUrl{
+  overflow: hidden;
+}
+.card-imageUrl:hover{
+  transform: scale(1.2);
+  transition: .5s;
+}
+
+.card-hover:hover {
+  .card-imageUrl {
+    transition: all 0.5s ease-out;
+      transform: scale(1.2);
+  }
 }
 </style>
