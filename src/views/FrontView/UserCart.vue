@@ -6,22 +6,22 @@
   <div v-if="cartsLength == 0" class="text-center">
     <div class="card border-0 rounded-0 bg-dark text-white">
       <img style="
-                            height: 70vh;
-                            background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
-                            background-size: cover;
-                            background-position: center bottom;
-                            object-fit: cover;
-                            background-attachment: fixed;
-                            background-blend-mode: multiply;
-                            background-color: rgba(0, 0, 0, 0.6);
-                          " />
+                                height: 70vh;
+                                background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678158943058.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Jn44%2B%2Bkd2gsFMtS91bnOaxSgmiZ1%2Byv%2B9wCGscJsTeCPU%2FnJc9ZMY5OM9AHec%2FYg0WQ%2BBMf2MqVBex%2Buondfr5cs8qgrLhRaqjzancMVsdSQh7%2Bt%2Bvve3ZpNoGtFIw29HggFVxqpBmJfWJU43sheDg966D5usj5PlkswQ7xutpIJwBZSAu4tuYZ%2BhVszThrE3rXRR9BRRfXvRxgiJpPlrlg3XxAbSE%2BvNgwq4iRl11eaE5fXuWGI8nRu4ORW%2FhG1SBtgGsYb0TAJ4jFPxNlDKjmI%2FBal2WrWD32jtOjvsSUbtxatHQ5OKx0vos6oW%2BIonUawlg6B%2FsNcChWBXVxDZw%3D%3D);
+                                background-size: cover;
+                                background-position: center bottom;
+                                object-fit: cover;
+                                background-attachment: fixed;
+                                background-blend-mode: multiply;
+                                background-color: rgba(0, 0, 0, 0.6);
+                              " />
       <div class="
-                            card-img-overlay
-                            d-flex
-                            flex-column
-                            justify-content-center
-                            align-item-center
-                          ">
+                                card-img-overlay
+                                d-flex
+                                flex-column
+                                justify-content-center
+                                align-item-center
+                              ">
         <h2 class="card-title text-center ">
           購物車是空的 <br />請至 <RouterLink class="text-light fw-bold" to="/products">清晨甜點</RouterLink> 選購
         </h2>
@@ -67,8 +67,18 @@
             </td>
             <td>
               <div class="input-group input-group-sm">
-                <select name="" id="" class="form-select" v-model="item.qty" @change="updateCartItem(item)">
+                <!-- <select name="" id="" class="form-select" v-model="item.qty" @change="updateCartItem(item)">
                   <option :value="i" v-for="i in 20" :key="i + '1234578'">{{ i }}</option>
+                </select> -->
+                <select name="" id="" class="form-select" v-model="item.qty" @change="updateCartItem(item)">
+                  <!-- 若數量 20以下 -->
+                  <template v-if="item.qty <= 20">
+                    <option :value="i" v-for="i in 20" :key="i + '1234578'">{{ i }}</option>
+                  </template>
+                  <!-- 若數量超過 20 -->
+                  <template v-else>
+                    <option :value="i" v-for="i in item.qty" :key="i + '1234578'">{{ i }}</option>
+                  </template>
                 </select>
               </div>
               <!-- <p>{{ item.product.unit }}</p> -->
@@ -174,6 +184,8 @@ export default {
       this.modal.show()
     },
     openAllDelProductModal (item) {
+      // 清空 tempProduct
+      this.tempProduct = {}
       this.tempCart = { ...item }
       console.log(this.cartData)
       this.modal.show()

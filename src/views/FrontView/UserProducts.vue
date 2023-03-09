@@ -76,7 +76,7 @@
             <div class="input-group  ms-auto mb-4">
               <input type="search" class="form-control border-primary p-2" @keyup.enter="searchProduct"
                 placeholder="請輸入商品名稱" v-model.trim="this.searchValue">
-              <button type="button" class="btn btn-primary px-5 px-lg-3" @click="searchProduct">搜尋</button>
+              <button type="button" class="btn btn-primary px-5 px-lg-3" @click="searchProduct"><i class="bi bi-search"></i></button>
             </div>
           </div>
         </div>

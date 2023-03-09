@@ -111,7 +111,7 @@
         <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
         <div class="offcanvas offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false" ref="offcanvas"
-          style="overflow: auto" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          style="overflow: auto; z-index:2040" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
           <div class="bg-bk-lighter offcanvas-header text-primary">
             <h5 id="offcanvasRightLabel " class="text-center m-0">購物車</h5>
             <button type="button" class="btn-close btn-close-primary text-reset" data-bs-dismiss="offcanvas"

@@ -1,9 +1,18 @@
 <template>
   <!-- 1. 購物車(確認訂單) -->
+  <section class="gsapLoop bg-warning">
+    <ul class="loop d-flex justify-content-center align-items-center">
+      <li class="fs-6 text-bk-bread">
+        <span> 限時領取優惠碼 2023 </span>
+
+      </li>
+    </ul>
+  </section>
   <RecommendProductsSwiper></RecommendProductsSwiper>
   <div></div>
   <GoTop></GoTop>
-  <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5" style="width:300px" data-bs-autohide="false">
+  <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5" style="width:300px"
+    data-bs-autohide="false">
     <div class="toast-header">
       <img src="" class="rounded me-2" alt="">
       <strong class="me-auto">領取優惠碼</strong>
@@ -29,6 +38,10 @@
 </template>
 
 <script>
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import TextPlugin from 'gsap/TextPlugin'
+
 import Toast from 'bootstrap/js/dist/toast'
 import PopoverComponent from '../../components/PopoverComponent.vue'
 import GoTop from '../../components/GoTop.vue'
@@ -74,6 +87,15 @@ export default {
     }
   },
   mounted () {
+    gsap.registerPlugin(ScrollTrigger, TextPlugin)
+
+    // 文字無限循環
+    gsap.to('.loop', {
+      xPercent: '-100',
+      ease: 'none',
+      duration: 5,
+      repeat: -1
+    })
     this.copyCouponCode()
     this.toast = new Toast(this.$refs.coupon)
     this.toast.show()
@@ -81,5 +103,28 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style lang="scss">
+.gsapLoop {
+  height: 50px;
+  overflow: hidden;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.loop {
+  display: inline-block;
+  // font-family: "Dela Gothic One";
+  // font-size: 16px;
+  color: #000;
+  white-space: nowrap;
+  height: 100%;
+  letter-spacing: 10px;
+
+}
+
+.loop>span {
+  display: inline-block;
+
+}
+
+</style> >
