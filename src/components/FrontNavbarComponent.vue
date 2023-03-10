@@ -135,7 +135,7 @@
                           justify-content-center
                           link-soft
                         ">
-                      <div class="col-2 mb-2 me-2" style="
+                      <div class="col-2 mb-2 me-2 rounded-3" style="
                             height: 50px;
                             width: 50px;
                             background-size: cover;

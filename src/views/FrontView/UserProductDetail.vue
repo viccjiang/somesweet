@@ -5,7 +5,7 @@
     <div class="container ">
     <div class="row">
       <!-- 左側欄 -->
-      <div class="col-12 col-md-6 ">
+      <div class="col-12 col-md-6  ">
         <img class="p-4 rounded-5 w-100 border" :src="productImg" :alt="product.title" style="
                                           height: 400px;
                                           background-size: cover;
@@ -13,7 +13,7 @@
                                           object-fit: cover;
                                         " />
         <div class="row">
-          <div class="col-4">
+          <div class="col-4 p-5 cursor-pointer">
             <img style="
                                                 height: 100px;
                                                 background-size: cover;
@@ -22,7 +22,7 @@
                                               " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="product.imageUrl"
               alt="產品" @click="changeImg(product.imageUrl)" />
           </div>
-          <div class="col-4" v-for="(img, key) in product.imagesUrl" :key="`圖_${key}`">
+          <div class="col-4 p-5 cursor-pointer" v-for="(img, key) in product.imagesUrl" :key="`圖_${key}`">
             <img style="
                                                 height: 100px;
                                                 background-size: cover;
@@ -158,6 +158,8 @@
   </div>
   </div>
 
+  <UserProdectDetailLooklike></UserProdectDetailLooklike>
+
 </template>
 
 <script>
@@ -165,6 +167,7 @@ import VueLoading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 import storageMethods from '../../methods/LocalStorage'
 import cartStore from '../../store/UserCartStore'
+import UserProdectDetailLooklike from '../../components/UserProduct/UserProdectDetailLooklike.vue'
 import { mapActions, mapState } from 'pinia'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -181,7 +184,8 @@ export default {
     }
   },
   components: {
-    VueLoading
+    VueLoading,
+    UserProdectDetailLooklike
   },
   methods: {
 

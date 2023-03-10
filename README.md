@@ -1,4 +1,4 @@
-# Vue Template
+# Some Sweet Baking
 
 ## Project setup
 
