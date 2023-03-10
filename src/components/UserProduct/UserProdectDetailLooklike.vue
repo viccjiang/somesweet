@@ -44,9 +44,7 @@ export default {
       productImg: '',
       id: '',
       isLoading: false,
-      randomProducts: [],
-      qty: 1 // 畫面上的輸入欄位顯示的預設值
-
+      randomProducts: []
     }
   },
   methods: {

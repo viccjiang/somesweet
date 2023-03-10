@@ -80,8 +80,8 @@
             </div>
           </div>
         </div>
+        <!-- 搜尋結束 -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-          <!-- 搜尋結束 -->
           <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
             <div class="product card h-100 p-5 rounded-4 products-img ">
               <div class="overflow-hidden rounded-4">

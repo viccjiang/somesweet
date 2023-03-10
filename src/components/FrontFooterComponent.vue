@@ -57,7 +57,7 @@
         </span>
       </div>
       <div class="mb-5">© 2022 re.HOUSE COPYRIGHT</div>
-      <ul class="d-flex justify-content-center list-unstyled  mb-5 h4 py-3">
+      <!-- <ul class="d-flex justify-content-center list-unstyled  mb-5 h4 py-3">
         <li>
           <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark mx-3"><i class="bi bi-github"></i></a>
         </li>
@@ -67,7 +67,7 @@
         <li>
           <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark  ms-3"><i class="bi bi-messenger"></i></a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </footer>
 </template>

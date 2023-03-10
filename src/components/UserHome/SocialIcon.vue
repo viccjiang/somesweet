@@ -6,7 +6,7 @@
     <a class="text-bk-bread text-opacity-50" href="#"><i class="bi bi-messenger"></i></a>
   </div>
 
-  <div v-else class="rounded-4 social-icon d-md-flex flex-column position-fixed end-0 fs-3 "  style="z-index:100">
+  <div v-else class="rounded-4 social-icon d-none d-md-flex flex-column position-fixed end-0 fs-3 "  style="z-index:100">
     <a class="text-bk-bread text-opacity-50" href="#"><i class="bi bi-facebook"></i></a>
     <a class="text-bk-bread text-opacity-50" href="#"><i class="bi bi-instagram"></i></a>
     <a class="text-bk-bread text-opacity-50" href="#"><i class="bi bi-messenger"></i></a>

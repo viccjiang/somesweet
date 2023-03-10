@@ -1,15 +1,19 @@
 <template>
   <GoTop></GoTop>
   <SocialIcon></SocialIcon>
+
   <!-- ScroolDown -->
-  <div class="position-absolute bottom-10 end-50" style="z-index:1000; margin-right:-30px" @click="scroll()"
+  <!-- <div class="position-absolute bottom-10 end-50" style="z-index:1000; margin-right:-30px" @click="scroll()"
     @keydown="enter">
     <span id="scrollArrow" class="btn fs-3 text-light ">
       <i class="bi bi-chevron-double-down"></i>
     </span>
-  </div>
+  </div> -->
 
-  <div class="section1 container-fluid g-0">
+  <div class="section1 container-fluid g-0 position-relative" >
+    <div class="scroll cursor-pointer bottom-10" @click="scroll()" style="z-index:2000">
+      <span class="scrollText">Scroll</span>
+    </div>
     <!-- hero banner -->
     <BannerSwiper></BannerSwiper>
   </div>
@@ -39,7 +43,8 @@
               class="card-img-top rounded-5 p-5" alt="...">
             <div class="card-body ">
               <h5 class="card-title">法式經典</h5>
-              <RouterLink to="/products" class="stretched-link float-end btn-link fs-6 fw-medium">立即前往 <i class="bi bi-chevron-right"></i></RouterLink>
+              <RouterLink to="/products" class="stretched-link float-end btn-link fs-6 fw-medium">立即前往 <i
+                  class="bi bi-chevron-right"></i></RouterLink>
             </div>
           </div>
         </div>
@@ -50,7 +55,8 @@
               class="card-img-top rounded-5 p-5" alt="...">
             <div class="card-body ">
               <h5 class="card-title">派皮系列</h5>
-              <RouterLink to="/products" class="stretched-link float-end btn-link fs-6 fw-medium">立即前往<i class="bi bi-chevron-right"></i></RouterLink>
+              <RouterLink to="/products" class="stretched-link float-end btn-link fs-6 fw-medium">立即前往<i
+                  class="bi bi-chevron-right"></i></RouterLink>
             </div>
           </div>
         </div>
@@ -61,7 +67,8 @@
               class="card-img-top rounded-5 p-5" alt="...">
             <div class="card-body ">
               <h5 class="card-title">常溫點心</h5>
-              <RouterLink to="/products" class=" stretched-link float-end btn-link fs-6 fw-medium">立即前往<i class="bi bi-chevron-right"></i></RouterLink>
+              <RouterLink to="/products" class=" stretched-link float-end btn-link fs-6 fw-medium">立即前往<i
+                  class="bi bi-chevron-right"></i></RouterLink>
             </div>
           </div>
         </div>
@@ -300,12 +307,123 @@ export default {
   }
 }
 
-.card-hover  {
+.card-hover {
   box-shadow: rgba(0, 0, 0, 0.01) 0px 15px 30px, rgba(0, 0, 0, 0.01) 0px 5px 10px;
 }
 
-.card-hover:hover  {
+.card-hover:hover {
   transition: 0.5s;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 30px, rgba(0, 0, 0, 0.1) 0px 5px 10px;
+}
+
+.scroll .scrollText {
+  position: absolute;
+  top: 0;
+  color: #ffffff;
+  font-size: 11px;
+  animation-duration: 1.4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: custom01;
+}
+
+.scroll {
+  position: absolute;
+  width: 30px;
+  height: 130px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  animation-duration: 2.1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: custom02;
+}
+
+.scroll .scrollText:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 1px;
+  height: 80px;
+  background-color: #ffffff;
+  left: 14px;
+  bottom: -130px;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: custom03;
+}
+
+@keyframes custom02 {
+  0% {
+    opacity: 0;
+  }
+
+  93% {
+    opacity: 0;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes custom01 {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 5px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+@keyframes custom03 {
+  0% {
+    height: 0;
+    bottom: -12px;
+  }
+
+  15% {
+    height: 12px;
+    bottom: -24px;
+  }
+
+  50% {
+    height: 80px;
+    bottom: -92px;
+  }
+
+  85% {
+    height: 12px;
+    bottom: -118px;
+  }
+
+  to {
+    height: 0;
+    bottom: -130px;
+  }
 }
 </style>

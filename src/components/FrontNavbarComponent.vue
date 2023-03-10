@@ -46,6 +46,9 @@
             <li class="navhover nav-item p-2">
               <RouterLink class="nav-link p-5" to="/faq">常見問題</RouterLink>
             </li>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/query_order">查詢訂單</RouterLink>
+            </li>
 
           </ul>
           <!-- icon -->

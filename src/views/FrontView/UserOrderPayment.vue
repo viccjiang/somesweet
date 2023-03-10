@@ -1,8 +1,8 @@
 <template>
   <UserCartStepComponent ></UserCartStepComponent>
   <!-- 訂單表格 -->
-  <div class="bg-light pt-5 pb-7 mt-5">
-    <div class="container">
+  <div class="bg-light pt-5 pb-7 mt-10">
+    <div class="container pt-10 pb-10">
       <div class="row justify-content-center flex-column flex-md-row ">
         <div class="col-md-8 sticky-lg-top position-lg-sticky h-50 ">
           <div class="border rounded-4 p-4 mb-4 ">
@@ -70,6 +70,8 @@
             </table>
           </div>
           <button type="button" v-if="!order.is_paid" class="btn btn-primary float-end" @click="payOrder">確認付款</button>
+          <RouterLink to="/products"><button type="button" v-if="order.is_paid" class="btn btn-primary float-end" >繼續購物</button></RouterLink>
+
         </div>
 
       </div>
