@@ -29,7 +29,7 @@
       <div class="col-md-3">
         <div
           class="sticky-md-top position-md-sticky accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3"
-          id="accordionExample">
+          id="accordionExample" style="z-index:100">
           <div class="card border-0 card-hover">
             <div
               class="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0"

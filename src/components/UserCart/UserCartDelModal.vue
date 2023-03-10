@@ -1,8 +1,8 @@
 <template >
-  <div id="delProductModal" ref="delmodal" class="modal fade" tabindex="-1" aria-labelledby="delProductModalLabel"
+  <div id="delProductModal" ref="delmodal" class="modal fade " tabindex="-1" aria-labelledby="delProductModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content border-0 ">
         <div class="modal-header bg-danger text-white">
           <h5 v-if="product.id" id="delProductModalLabel" class="modal-title">
             <span>刪除商品</span>

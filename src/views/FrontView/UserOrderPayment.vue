@@ -133,7 +133,24 @@ export default {
       const select = (DOM) => document.querySelector(DOM)
       select('#orderSave').addEventListener('click', () => {
         navigator.clipboard.writeText(select('#orderId').textContent)
-        // this.showAlert()
+        this.showAlert()
+      })
+    },
+    showAlert () {
+      const Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', this.$swal.stopTimer)
+          toast.addEventListener('mouseleave', this.$swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: '優惠碼複製成功'
       })
     }
   },

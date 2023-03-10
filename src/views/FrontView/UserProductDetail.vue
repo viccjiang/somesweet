@@ -1,33 +1,34 @@
 <!-- eslint-disable no-undef -->
 <template>
   <VueLoading :active="isLoading" loader="bars" color="#034D83" />
-  <div class="container">
+  <div class="banner bg-cover">
+    <div class="container ">
     <div class="row">
       <!-- 左側欄 -->
       <div class="col-12 col-md-6 ">
         <img class="p-4 rounded-5 w-100 border" :src="productImg" :alt="product.title" style="
-                                        height: 400px;
-                                        background-size: cover;
-                                        background-position: center center;
-                                        object-fit: cover;
-                                      " />
+                                          height: 400px;
+                                          background-size: cover;
+                                          background-position: center center;
+                                          object-fit: cover;
+                                        " />
         <div class="row">
           <div class="col-4">
             <img style="
-                                              height: 100px;
-                                              background-size: cover;
-                                              background-position: center center;
-                                              object-fit: cover;
-                                            " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="product.imageUrl"
+                                                height: 100px;
+                                                background-size: cover;
+                                                background-position: center center;
+                                                object-fit: cover;
+                                              " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="product.imageUrl"
               alt="產品" @click="changeImg(product.imageUrl)" />
           </div>
           <div class="col-4" v-for="(img, key) in product.imagesUrl" :key="`圖_${key}`">
             <img style="
-                                              height: 100px;
-                                              background-size: cover;
-                                              background-position: center center;
-                                              object-fit: cover;
-                                            " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="img"
+                                                height: 100px;
+                                                background-size: cover;
+                                                background-position: center center;
+                                                object-fit: cover;
+                                              " class="w-100 p-0 rounded-0 mt-2 border rounded-4" :src="img"
               :alt="`圖_${key}`" @click="changeImg(img)" />
           </div>
         </div>
@@ -47,7 +48,7 @@
           </ol>
         </nav>
         <!-- 產品細節介紹 -->
-        <h2 class="fw-bold h1 mb-1">{{ product.title }}</h2>
+        <h2 class="fs-3 fw-bold h1 mb-1">{{ product.title }}</h2>
         <p class="mt-5 mb-0 text-muted text-start">
           <del>NT${{ product.origin_price }}</del>
         </p>
@@ -62,14 +63,14 @@
               <p v-if="myFavorite.includes(product.id)"
                 class="m-0 text-danger d-flex align-items-center justify-content-center">
                 <i class="
-                        fs-4
-                        bi-suit-heart-fill
-                        top-0
-                        end-0
-                        me-2
-                        mt-1
-                        text-danger
-                      "></i>已加入收藏
+                          fs-4
+                          bi-suit-heart-fill
+                          top-0
+                          end-0
+                          me-2
+                          mt-1
+                          text-danger
+                        "></i>已加入收藏
               </p>
               <p v-else class="m-0  text-soft d-flex align-items-center justify-content-center"><i
                   class="fs-4 bi bi-suit-heart top-0 end-0 me-2 mt-1 p-0"></i>加入收藏</p>
@@ -124,6 +125,39 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <div class="banner bg-cover pt-10">
+    <div class="container mb-5">
+    <div class="row  g-0" data-aos="fade-up" data-aos-duration="1000">
+      <div class="col-md-4 ">
+        <img
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678412947710.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=CYhdBaempuovMGV3FPUTzGQmJcdxUexOR467IoCP9DarD7hVxsoChQoJEpcQonaOLAIf6LmfW%2BTKiosIMI%2B4pDVXs8aWEuPLztC1HvW4maWwvShTy%2B8P24ocifrgegJj%2BRZEwoxD%2BPQQnH6oblI5%2F88b5pGyuM%2FdIPGBkfR%2FrVm8AR9HQpwwWGKaFaew1lHn7AJqKGK4D1EPvBwobuXfA0kprnCJ%2FO4TZybWyjtAfGk%2Bj9dlqGmVgFECfYqGbe5FQc%2B%2BDXwjl5x2ViiDyvBOZy4YNR9x6bAIuMClxlX1UFV8F0qk9K6Bu%2FaYDcgd2UrjHD9HibNeAhMOtoUbZZecQw%3D%3D"
+          :alt="product.title" class="img-fluid rounded-5 p-5 border " />
+      </div>
+      <div class="col-md-6 m-auto text-start p-5">
+        <h4 class="mb-5">{{ product.title }}</h4>
+        <p class="text-secondary">
+          {{ product.description }}
+        </p>
+      </div>
+    </div>
+    <div class="row g-0   justify-content-between mt-10" data-aos="fade-up" data-aos-duration="1000">
+      <div class="col-md-4 ">
+        <img
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678412966133.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ofuv2yWPXt6RCDCGBCyvzZsL3r3QKMkCdAWXaJCr3XKCkozruqo20ZRjv9hItJC5aOOC5j5xRYk22xs1sc%2BGS9JqVumbx6gWqQln9hD%2FGv864nNMi6r59M03iyo70k8qioUgfKlPfwc2p1IYwTR%2BYi3UK793aePqWW3c58ompTHf5joUklU7URm4yKRIlpZ00zoWXHkF%2FsOG%2BuJQFA3VYmqp6UkaakCJtuKcCzflXWE78UdbX6ZrnFLFGLaco7nu%2F0owWQWFv5StN3sSiodp9M9ploeWsw2ray0419j6FLNuP2q7Kdpz6Po9RvSyWCu%2FPzkfofzecXdGbB%2FeqmTINw%3D%3D"
+          alt="防疫樂活" class="img-fluid rounded-5 p-5 border" />
+      </div>
+      <div class="col-md-6 m-auto text-start m-0 p-5">
+        <!-- <h4 class="mt-5 mb-5">{{ product.category }}</h4> -->
+        <p class="text-secondary">
+          {{ product.content }}
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+
 </template>
 
 <script>
@@ -234,4 +268,24 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.banner {
+  background-image: url(../../assets/Group103.jpg);
+}
+
+.bg-cover {
+  background-attachment: fixed;
+}
+
+.bg-cover {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+</style>

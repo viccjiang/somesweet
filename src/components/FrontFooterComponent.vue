@@ -9,67 +9,51 @@
             </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <RouterLink
-              to="/about"
-              class="nav-link px-2 py-5"
-            >
+            <RouterLink to="/about" class="nav-link px-2 py-5">
               關於我們
             </RouterLink>
           </li>
+
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <RouterLink
-              to="/faq"
-              class="nav-link px-2 py-5"
-            >
-              常見問答
-            </RouterLink>
-          </li>
-          <li class="navhover col-md-2 p-1 col-lg-2">
-            <RouterLink
-              to="/products"
-              class="nav-link px-2 py-5"
-            >
+            <RouterLink to="/products" class="nav-link px-2 py-5">
               清晨甜點
             </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <RouterLink
-              to="/cart"
-              class="nav-link px-2 py-5"
-            >
+            <RouterLink to="/cart" class="nav-link px-2 py-5">
               購物車
             </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <RouterLink
-              to="/blog"
-              class="nav-link px-2 py-5"
-            >
+            <RouterLink to="/blog" class="nav-link px-2 py-5">
               部落格
+            </RouterLink>
+          </li>
+          <li class="navhover col-md-2 p-1 col-lg-2">
+            <RouterLink to="/faq" class="nav-link px-2 py-5">
+              常見問答
             </RouterLink>
           </li>
         </ul>
       </nav>
       <div class="pt-5 pt-md-0 my-5">
         <RouterLink to="/">
-        <a class="d-flex navbar-brand justify-content-center align-items-center" href="#">
-          <img src="../assets/Vector.svg" alt="Logo" width="" height="" class="d-inline-block align-text-top me-3">
-          <div>
-            <p class="fs-m fw-bold text-start">清晨一點甜</p>
-            <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
+          <a class="d-flex navbar-brand justify-content-center align-items-center" href="#">
+            <img src="../assets/Vector.svg" alt="Logo" width="" height="" class="d-inline-block align-text-top me-3">
+            <div>
+              <p class="fs-m fw-bold text-start">清晨一點甜</p>
+              <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
 
-          </div>
-          <!-- <h1 class="logoText fw-bolder p-0 m-0">SOME SWEET<span class="fs-6 fw-lighter">/am</span></h1> -->
-        </a>
+            </div>
+            <!-- <h1 class="logoText fw-bolder p-0 m-0">SOME SWEET<span class="fs-6 fw-lighter">/am</span></h1> -->
+          </a>
 
-      </RouterLink>
+        </RouterLink>
       </div>
       <div class="mt-5">
         本網站僅供個人作品使用，不提供商業用途
-        <span class="d-none d-md-inline-block"
-          ><RouterLink class="p-0 nav-link link-bk-gray text-bk-gray" to="/login"
-            >｜登入後台</RouterLink
-          >
+        <span class="d-none d-md-inline-block">
+          <RouterLink class="p-0 nav-link link-bk-gray text-bk-gray" to="/login">｜登入後台</RouterLink>
         </span>
       </div>
       <div class="mb-5">© 2022 re.HOUSE COPYRIGHT</div>
@@ -78,14 +62,10 @@
           <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark mx-3"><i class="bi bi-github"></i></a>
         </li>
         <li>
-          <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark  mx-3"
-            ><i class="bi bi-instagram"></i
-          ></a>
+          <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark  mx-3"><i class="bi bi-instagram"></i></a>
         </li>
         <li>
-          <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark  ms-3"
-            ><i class="bi bi-messenger"></i
-          ></a>
+          <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark  ms-3"><i class="bi bi-messenger"></i></a>
         </li>
       </ul>
     </div>
@@ -93,33 +73,37 @@
 </template>
 
 <style lang="scss" scoped>
-  // logo
-  .brandlogo {
-    font-family: "Expletus Sans", cursive;
-    font-weight: Bold;
-    font-size: 42px;
-  }
-  .brandlogos {
-    font-family: "Expletus Sans", cursive;
-    font-weight: 400;
-    font-size: 30px;
-    font-style: italic;
-  }
-  // footer
-  .navhover a {
-    position: relative;
-  }
-  .navhover ::after {
-    content: " ";
-    position: absolute;
-    right: 50%;
-    left: 50%;
-    bottom: -5px;
-    border-bottom: 3px solid #034d83;
-    transition: 0.3s;
-  }
-  .navhover :hover::after {
-    right: 0%;
-    left: 0%;
-  }
+// logo
+.brandlogo {
+  font-family: "Expletus Sans", cursive;
+  font-weight: Bold;
+  font-size: 42px;
+}
+
+.brandlogos {
+  font-family: "Expletus Sans", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: italic;
+}
+
+// footer
+.navhover a {
+  position: relative;
+}
+
+.navhover ::after {
+  content: " ";
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: -5px;
+  border-bottom: 3px solid #034d83;
+  transition: 0.3s;
+}
+
+.navhover :hover::after {
+  right: 0%;
+  left: 0%;
+}
 </style>

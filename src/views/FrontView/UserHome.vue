@@ -1,5 +1,6 @@
 <template>
   <GoTop></GoTop>
+  <SocialIcon></SocialIcon>
   <!-- ScroolDown -->
   <div class="position-absolute bottom-10 end-50" style="z-index:1000; margin-right:-30px" @click="scroll()"
     @keydown="enter">
@@ -32,7 +33,7 @@
       </div>
       <div class="row row-cols-1  row-cols-md-3 g-4">
         <div class="col">
-          <div class="card card-hover h-100 rounded-5 border-0 bg-warning ">
+          <div class="card card-hover h-100 rounded-5 border bg-light ">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677468903602.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=G2QFeBZMulWaizBKk%2Bs%2FXIW2jxLqe8kVyVDBkOg5UDst9ohqO%2FH%2BPx0ARJx5APHioQbkHh8egkQ5G9uoQEe7%2BaLsFlum2O6wxdrDqhiKce8aij9XaQPbngyuFjwvaBrqPqkpQwDaFXSDOy74rreZqiviSoFok2Wgnky8Wk5rnJ9qcEC2RTXypHDrgEmUzPg1zufV%2BaWHyhy6YKEp6qKa8maj2KC%2FqaXxAqVRTX9jGBTvlgm6PJOefrF55Ta%2FAGdkpA55y7Ds1xulher17%2BS33mqs23MtdPFB56jCAlhOnHjYFudbwQQzw7vyiiIuYzUx0JiZUc8UGtam4PgOIn4xNQ%3D%3D"
               class="card-img-top rounded-5 p-5" alt="...">
@@ -43,7 +44,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card card-hover h-100 rounded-5 border-0 bg-warning">
+          <div class="card card-hover h-100 rounded-5 border bg-light">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469053444.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fyqj%2BXWU9L09fcpXzFhYsJRqHOFiRrJ2CRPNng%2FUmPwpk%2BIRi9S8tSVBME%2F2QZvSSZONH2KUgAQJjf9zHhWITf%2FcGmN4h0xUuYhcrLryQHG2BJPC41p0AchpOGvIe5h4oAT2ep9aGyYZ7LrX7qLLz084fNmz4%2FqqKLb0Xz%2FESP656%2BztvH6g1K6HJca4H%2F%2BcluCGJxapb7kTysxXrmfyORD%2FdJ20x2U9RYm1EiVZ622F9ZIHXbR3NhdRpNi4Nl7PY8E2HYCGj55OUYVNtzokQb9KdtI9oSfCBNC%2FDq%2FaIpv0c5I25DTaR09qrwrqByFbHAFRTNDpBKNw3V2YWCGEWg%3D%3D"
               class="card-img-top rounded-5 p-5" alt="...">
@@ -54,7 +55,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card card-hover h-100 rounded-5 border-0 bg-warning">
+          <div class="card card-hover h-100 rounded-5 border bg-light">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
               class="card-img-top rounded-5 p-5" alt="...">
@@ -122,7 +123,7 @@
     </div>
   </div>
   <!-- 好評推薦 -->
-  <div class="bg-warning p-10 mb-10">
+  <div class="bg-light p-10 mb-10">
     <div class="container">
       <div class="section-title mb-10">
         <h3 class="text-center fs-6 fw-light mb-1">RECOMMENDATION</h3>
@@ -150,6 +151,7 @@
 </template>
 
 <script>
+import SocialIcon from '../../components/UserHome/SocialIcon.vue'
 import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
 import RecommendSwiper from '../../components/UserHome/RecommendSwiper.vue'
 import GoTop from '../../components/GoTop.vue'
@@ -192,7 +194,8 @@ export default {
     RecommendSwiper,
     GoTop,
     CouponCopy,
-    RecommendProductsSwiper
+    RecommendProductsSwiper,
+    SocialIcon
   },
   mounted () {
     this.getArticles()

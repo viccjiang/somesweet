@@ -299,7 +299,7 @@ $cyans: (
 
 // scss-docs-start theme-color-variables
 $primary:       #034D83 ;// $blue !default;
-$secondary:     #888888 ;//$gray-600 !default;
+$secondary:     $gray-600 !default;
 $success:       #07c65c;// $green !default;
 $info:          #A1D6D3;//$cyan !default;
 $warning:       #EAEBAF;//$yellow !default;
