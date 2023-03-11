@@ -229,13 +229,9 @@ export default {
         this.myFavorite.splice(this.myFavorite.indexOf(item.id), 1)
         this.getFavorites()
         this.getProducts()
-        // emitter.emit('update-favorite'); // 更新最愛數量
       } else {
         this.myFavorite.push(item.id) // 否則沒有此品項 就把品項加入
-        // emitter.emit('update-favorite'); // 更新最愛數量
       }
-      // storageMethods.save(this.myFavorite); // 儲存狀態
-      // emitter.emit('update-favorite'); // 更新最愛數量
     },
     getCategories () {
       // Vue 3 雙向綁定 Proxy(new Proxy 物件)
@@ -269,7 +265,6 @@ export default {
       // 深層監聽
       handler () {
         storageMethods.save(this.myFavorite) // 把資料儲存
-        // emitter.emit('update-favorite') // 更新最愛數量
       },
       deep: true
     }

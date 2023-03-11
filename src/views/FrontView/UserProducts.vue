@@ -227,14 +227,10 @@ export default {
       if (this.myFavorite.includes(item.id)) {
         // 這裡意思是 如果我的最愛已經有這個品項，再按一次就代表取消
         this.myFavorite.splice(this.myFavorite.indexOf(item.id), 1)
-        // emitter.emit('update-favorite'); // 更新最愛數量
       } else {
         this.myFavorite.push(item.id) // 否則沒有此品項 就把品項加入
         this.favShowAlert()
-        // emitter.emit('update-favorite'); // 更新最愛數量
       }
-      // storageMethods.save(this.myFavorite); // 儲存狀態
-      // emitter.emit('update-favorite'); // 更新最愛數量
     },
     searchProduct () {
       // 取得全部產品

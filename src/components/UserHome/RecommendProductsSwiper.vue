@@ -138,7 +138,6 @@ export default {
         .then((res) => {
           this.isLoading = false
           this.$httpMessageState(res, '加入購物車')
-          // emitter.emit('update-cart') // 更新購物車數量
         })
         .catch((error) => {
           this.isLoading = false
