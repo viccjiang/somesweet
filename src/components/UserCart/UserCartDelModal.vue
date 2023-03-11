@@ -12,7 +12,6 @@
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- {{  product.id  }} -->
         <div v-if="product.id" class="modal-body">
           是否刪除
           <strong class="text-danger">{{ product?.product?.title }}</strong> 商品
