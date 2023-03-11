@@ -73,8 +73,8 @@ export default defineStore('cart', {
     deleteItem (id) {
       axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart/${id}`)
         .then(res => {
-          console.log(id)
-          console.log(res)
+          // console.log(id)
+          // console.log(res)
           this.getCarts()
           this.modal.hide()
         })
@@ -82,14 +82,14 @@ export default defineStore('cart', {
     deleteAllItem () {
       axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/carts`)
         .then(res => {
-          console.log(res)
+          // console.log(res)
           this.getCarts()
           this.modal.hide()
         })
     },
     setModal (item) {
       this.modal = item
-      console.log(this.modal)
+      // console.log(this.modal)
     },
     toThousands (num) {
       const n = parseInt(num, 10)
