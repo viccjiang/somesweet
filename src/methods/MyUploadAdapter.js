@@ -9,7 +9,7 @@ class MyUploadAdapter {
 
   // Starts the upload process.
   upload () {
-    console.log('this', this)
+    // console.log('this', this)
     // 轉成 formData 格式
     const formData = new FormData()
     const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/upload`
@@ -27,7 +27,7 @@ class MyUploadAdapter {
           })
         })
         .then((response) => {
-          console.log(response.data.imageUrl)
+          // console.log(response.data.imageUrl)
           resolve({
             default: response.data.imageUrl // 上傳後的路徑傳回來
           })

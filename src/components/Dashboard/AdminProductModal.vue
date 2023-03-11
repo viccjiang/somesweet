@@ -159,7 +159,7 @@ export default {
           if (response.data.success) {
             this.tempProduct.imageUrl = response.data.imageUrl
             this.$refs.fileInput.value = ''
-            console.log(response.data.imageUrl)
+            // console.log(response.data.imageUrl)
           } else {
             this.$refs.fileInput.value = ''
           }

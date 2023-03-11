@@ -63,7 +63,7 @@
         <div class="col">
           <div class="card card-hover h-100 rounded-5 border bg-light">
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678512069480.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=io6NKOSAW1TbkazmGz3KZ0DKI14Vpv2Ekr2foPG8%2FPRSEyRqWd10I1RcLMskVZgrYNFkEFWsFhj%2BWlRJBfB6ZvKa5pguGujLVQBpXtwOkg%2FgzmUSmebWRp25d3vj7%2BoMF7tFLeN8tsKifPH6%2BgYAUXFTzPBE5wgaMSKH8%2B5MY0CIF1eLF8v0Nw7C27EUZTtMsWA1LgjTfcpM082pPjZQdBr3w2tpIEsG%2FeVlGtfE7pUZoGhqQycYeTn%2FNxPoLB9uPMaU%2BUOSuhDJIWtFq5zt1eJPtji5dwnakr4kczz6gGfwx43iNNR%2F2wiz8ob3663Kec91xaisZkS8qlx6IavBDQ%3D%3D"
               class="card-img-top rounded-5 p-5" alt="...">
             <div class="card-body ">
               <h5 class="card-title">常溫點心</h5>
@@ -152,7 +152,7 @@
 
   <CouponCopy ref="coupon"></CouponCopy>
   <div
-    class="bg-bk-bread position-absolute position-fixed bottom-25 left-10 writing-mode rounded-4 p-4 border border-light border-2"
+    class="bg-bk-bread position-absolute position-fixed bottom-20 left-10 writing-mode rounded-4 p-4 border border-light border-2"
     style="margin-left:-10px;z-index:100"><a href="" @click.prevent="showToast()" class="text-white p-5">領 取 優 惠 碼</a>
   </div>
 </template>

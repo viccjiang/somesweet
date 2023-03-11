@@ -71,37 +71,24 @@ export default {
     // 前往可能會喜歡頁面
     goProductPage (id) {
       this.$router.push(`/product/${id}`)
-      // this.getLookLike();
-      // this.isLoading = true
-      // this.$http(`${VITE_APP_URL}api/${VITE_APP_PATH}/product/${id}`)
-      //   .then((res) => {
-      //     // this.isLoading = false;
-      //     this.product = res.data.product // 賦值
-      //     this.randomProducts = [] // 轉到新頁面要先清空原本的
-      //     this.productImg = this.product.imageUrl
-      //     this.isLoading = false
-      //     this.getLookLike()
-      //   })
     },
     getLookLike () {
-      const { category } = this.product
+      const { category } = this.product // 先取出單一品項的分類
+      // console.log(category)
       const filterProducts = this.products.filter((item) => item.category === category) // 取得相同品項
       const maxSize = filterProducts.length < 4 ? filterProducts.length : 4
       // 先新增一個類陣列，所以陣列的方法基本上不太能用
       const arrSet = new Set([])
-      getRandomInt()
       for (let index = 0; arrSet.size < maxSize; index + 1) {
         // arrSet.size 不能寫死數字
-        const num = getRandomInt(filterProducts.length) // 取得品項隨機數字
-        arrSet.add(num)
+        const num = getRandomInt(filterProducts.length) // 取得取得相同品項數量的隨機數字
+        arrSet.add(num) // 加入
       }
+      // console.log(arrSet)
       arrSet.forEach((index) => {
         this.randomProducts.push(filterProducts[index])
       })
     }
-
-  },
-  watch: {
 
   },
   mounted () {

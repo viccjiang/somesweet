@@ -1,6 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"></VueLoading>
-  <div class="card border-0 rounded-0 bg-dark text-white mb-5">
+   <div class="card border-0 rounded-0 bg-dark text-white mb-5">
     <div class="filters" style="
           height: 200px;
           background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1678434203376.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UBxJyY3fDcVkO7rlmRtkVyg45j7wG48MPLwbDQ%2BX%2FGOaCmLtdpV8oOg5Li8RxP8i4JL%2F2CHbUd8fVB5av4GnkIKTm99zZZxLMIA5uBy4uYlHPOTrywCh151dgfP7EEpoYrIjmJvvx65x4%2Btp3N9RhCaEutJKc8UrsgVF40cDftAknYs0ZeiX13KTKKbRQ9YvfSvkervKwDN8wVaBsFbRpXkzs34wNXn2aSC7eIo0Dw7NTzklz%2B9%2BFtG70LgsTaec5F6XA6TsDuu9hJ%2B9FGQO2pR%2BKhWjrJ5yib6ut6iDqhq%2FwubbGxMqRvot9bE8MYuODGIRM1Vqa2pb1noRJ1jLAA%3D%3D);
@@ -12,7 +11,8 @@
       <h1 class="card-title text-center fw-bold">訂單查詢</h1>
     </div>
   </div>
-  <div  class="container  d-flex  justify-content-center align-items-center" style="height: 500px;">
+  <div class="banner bg-cover">
+    <div  class="container  d-flex  justify-content-center align-items-center" style="height: 500px;">
     <div class="row d-flex justify-content-center align-items-center mb-5 " >
       <label class="mb-3 text-center mt-2 fs-2 fw-bold" for="orderId">請輸入訂單編號</label>
       <div class="col d-flex justify-content-center align-items-center mb-4">
@@ -54,6 +54,9 @@
       </div>
     </div>
   </div>
+  </div>
+  <VueLoading :active="isLoading"></VueLoading>
+
 </template>
 
 <script>import VueLoading from 'vue-loading-overlay'
@@ -141,5 +144,24 @@ export default {
   width: 100%;
   height: 5px;
   background: rgba(35, 111, 107, 0.2);
+}
+
+.banner {
+  background-image: url(../../assets/Group103.jpg);
+}
+
+.bg-cover {
+  background-attachment: fixed;
+}
+
+.bg-cover {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 </style>

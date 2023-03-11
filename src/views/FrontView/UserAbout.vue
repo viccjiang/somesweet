@@ -25,29 +25,29 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container mt-10">
     <div class="text-area mb-10">
       <p class="fs-lg lh-lg">清晨一點甜</p>
-      <p class="fw-light lh-lg mb-3">
+      <p class="fw-light lh-lg mb-10">
         「清晨一點甜，讓你的一天有好的開始」是我們甜點店的口號。我們深信，一份甜點的美味可以為人帶來無限的愉悅和滿足，就像清晨第一口甜點的滋味，可以為一整天注入能量和動力。因此，我們精選最優質的食材和最精湛的烘焙技術，製作出各式各樣的美味甜點，期望能為每一位客人帶來美好的味覺體驗。
       </p>
 
       <p class="fs-lg lh-lg">味覺饗宴</p>
-      <p class="fw-light lh-lg mb-3">
+      <p class="fw-light lh-lg mb-10">
         在我們的甜點店中，您可以找到各種風味的甜點，包括經典的法式糕點、現做的手工蛋糕、口感豐富的鬆餅、香氣四溢的麵包等等。不論您是要來單獨享用一份甜點，還是和好友一起分享，我們都為您準備了最合適的選擇。</p>
 
       <p class="fs-lg lh-lg">秉持精神</p>
-      <p class="fw-light lh-lg mb-3">
+      <p class="fw-light lh-lg mb-10">
         除了味道上的堅持，我們對於產品品質和衛生標準也十分嚴格。我們每日都會使用新鮮的食材和經過嚴格篩選的原材料，確保每一份甜點都是最新鮮、最美味的。此外，我們店內的衛生設備和環境也都經過精心打理，以確保每一位客人都能在舒適、安全的環境中品嚐美食。
       </p>
 
-      <p class="fw-light lh-lg mb-3">
+      <p class="fw-light lh-lg mb-10">
         總之，「清晨一點甜，讓你的一天有好的開始」是我們對於甜點的堅持和熱愛。我們期望能夠為每一位客人帶來美好的體驗，讓他們在忙碌的生活中找到一點甜蜜的片刻，讓一天的開始更加美好。</p>
 
     </div>
 
-    <div class="photos text-area mb-10 ">
-      <div class="row row-cols-1 row-cols-md-4 g-4 ">
+    <div class="photos text-area mb-10">
+      <div class="row row-cols-1 row-cols-md-4 g-4 py-10">
         <div class="col ">
           <div class="card h-100 rounded-4 card-hover border-0">
           <RouterLink to="/products" class="stretched-link h-100">

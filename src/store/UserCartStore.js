@@ -39,7 +39,7 @@ export default defineStore('cart', {
           this.isLoading = false
           this.cartData = res.data.data
           this.cartsLength = this.cartData.carts.length // 購物車 icon 判斷
-          console.log(this.cartData, this.cartsLength)
+          // console.log(this.cartData, this.cartsLength)
         })
     },
     addToCart (id, qty = 1) {
@@ -49,11 +49,11 @@ export default defineStore('cart', {
         product_id: id,
         qty
       }
-      console.log(id, qty)
+      // console.log(id, qty)
       axios.post(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`, { data: cart })
         .then(res => {
           // this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
-          console.log('加入購物車', res.data)
+          // console.log('加入購物車', res.data)
           this.showAlert()
           this.getCarts()
         })

@@ -1,12 +1,13 @@
 <template>
   <div ref="coupon" role="alert" aria-live="assertive" aria-atomic="true" class="toast ms-5 position-absolute position-fixed bottom-5 left-10" style="width:300px;z-index:1999" data-bs-autohide="true">
-    <div class="toast-header">
+    <!-- <div class="toast-header">
       <img src="" class="rounded me-2" alt="">
       <strong class="me-auto">領取優惠碼</strong>
       <small>限時限量倒數中</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
+    </div> -->
+    <div class="toast-body" >
+      <button type="button" class="btn-close float-end" data-bs-dismiss="toast" aria-label="Close"></button>
       <div class="d-flex justify-content-center d-flex align-items-center">
         <img src="https://pic.sopili.net/pub/emoji/noto-emoji/png/128/emoji_u1f449.png" alt="複製優惠碼" width="20"
           height="20" />
