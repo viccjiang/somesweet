@@ -11,7 +11,8 @@
         <div class="bannerText text-center">
           <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
           <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
-          <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
+          <RouterLink to="/products"><button type="button"
+              class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button></RouterLink>
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -21,7 +22,8 @@
         <div class="bannerText text-center">
           <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
           <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
-          <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
+          <RouterLink to="/products"> <button type="button"
+              class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button></RouterLink>
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -31,7 +33,8 @@
         <div class="bannerText text-center">
           <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
           <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
-          <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
+          <RouterLink to="/products"> <button type="button"
+              class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button></RouterLink>
         </div>
       </swiper-slide>
 
@@ -96,5 +99,4 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-</style>
+}</style>
