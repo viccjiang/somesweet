@@ -56,7 +56,7 @@
           <RouterLink class="p-0 nav-link link-bk-gray text-bk-gray" to="/login">｜登入後台</RouterLink>
         </span>
       </div>
-      <div class="mb-5">© 2022 re.HOUSE COPYRIGHT</div>
+      <div class="mb-5">© 2022 SomeSweet COPYRIGHT</div>
       <!-- <ul class="d-flex justify-content-center list-unstyled  mb-5 h4 py-3">
         <li>
           <a href="https://viccjiang.github.io/vue_week_07/#/" class="text-dark mx-3"><i class="bi bi-github"></i></a>
