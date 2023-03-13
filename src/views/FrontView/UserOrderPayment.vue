@@ -20,7 +20,7 @@
               <tbody>
                 <tr>
                   <th scope="col">訂購日期</th>
-                  <td scope="col">{{ order.create_at }}</td>
+                  <td scope="col">{{ dateTranslate(order.create_at) }}</td>
                 </tr>
                 <tr>
                   <th scope="row">姓名</th>
@@ -69,8 +69,8 @@
               </tbody>
             </table>
           </div>
-          <button type="button" v-if="!order.is_paid" class="btn btn-primary float-end" @click="payOrder">確認付款</button>
-          <RouterLink to="/products"><button type="button" v-if="order.is_paid" class="btn btn-primary float-end" >繼續購物</button></RouterLink>
+          <button type="button" v-if="!order.is_paid" class="btn btn-primary float-end rounded-4" @click="payOrder">確認付款</button>
+          <RouterLink to="/products"><button type="button" v-if="order.is_paid" class="btn btn-primary float-end rounded-4" >繼續購物</button></RouterLink>
 
         </div>
 
@@ -137,6 +137,10 @@ export default {
         navigator.clipboard.writeText(select('#orderId').textContent)
         this.showAlert()
       })
+    },
+    dateTranslate (time) {
+      const localDate = new Date(time * 1000)
+      return localDate.toLocaleDateString()
     },
     showAlert () {
       const Toast = this.$swal.mixin({

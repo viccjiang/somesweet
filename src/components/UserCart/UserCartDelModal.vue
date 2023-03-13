@@ -3,7 +3,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content border-0 ">
-        <div class="modal-header bg-danger text-white">
+        <!-- <div class="modal-header bg-danger text-white">
           <h5 v-if="product.id" id="delProductModalLabel" class="modal-title">
             <span>刪除商品</span>
           </h5>
@@ -11,7 +11,7 @@
             <span>刪除商品</span>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+        </div> -->
         <div v-if="product.id" class="modal-body">
           是否刪除
           <strong class="text-danger">{{ product?.product?.title }}</strong> 商品

@@ -47,8 +47,8 @@
             <div class="p-0">
               <div class="">
                 <div class="d-none d-md-grid ">
-                  <router-link to="/cart" class="btn btn-outline-secondary px-5 mb-5">回上一頁</router-link>
-                  <router-link to="/products" class="btn btn-outline-primary px-5">繼續選購</router-link>
+                  <router-link to="/cart" class="btn btn-outline-secondary px-5 mb-5 rounded-4">回上一頁</router-link>
+                  <router-link to="/products" class="btn btn-outline-primary px-5 rounded-4">繼續選購</router-link>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@
                     v-model="form.user.message"></textarea>
                 </div>
                 <div class="text-end d-grid">
-                  <button type="submit" class="btn btn-danger mb-5 text-white">送出訂單</button>
+                  <button type="submit" class="btn btn-danger mb-5 text-white  rounded-4">送出訂單</button>
                 </div>
               </FormView>
             </div>

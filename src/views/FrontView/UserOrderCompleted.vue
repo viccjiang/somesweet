@@ -19,7 +19,7 @@
             <p class="fs-6"> 從備貨到寄出商品為 7 個工作天（不包含假日） </p>
             <p class="fs-6 mb-10">再請留意簡訊通知</p>
           </div>
-          <a href="#/products" class=" btn btn-primary px-5 py-2 mb-10">繼續選購</a>
+          <a href="#/products" class=" btn btn-primary px-5 py-2 mb-10  rounded-4">繼續選購</a>
           <p>該頁將在 <span>{{ count }}</span> 秒後自動跳轉 </p>
           <RouterLink to="/">點擊跳轉</RouterLink>
         </div>

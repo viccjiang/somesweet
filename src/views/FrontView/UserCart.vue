@@ -116,7 +116,7 @@
         <div class="coupon input-group mb-3 input-group-sm">
           <input type="text" class="form-control border-0 border-bottom" v-model="coupon_code" placeholder="請輸入優惠碼" />
           <div class="input-group-append">
-            <button class="btn btn-primary rounded-0 border " :class="{ disabled: coupon_code === '' }" type="button"
+            <button class="btn btn-primary rounded-0 border rounded-4" :class="{ disabled: coupon_code === '' }" type="button"
               @click="addCouponCode">
               套用優惠碼
             </button>
@@ -128,8 +128,8 @@
   <div class="container mt-10 mb-10" v-if="cartsLength > 0">
     <div class="row ">
       <div class="d-flex justify-content-between">
-        <router-link to="/products" class="btn btn-outline-primary px-5">繼續選購</router-link>
-        <router-link v-if="cartsLength > 0" to="/checkout" class="btn btn-danger px-5 text-white">下一步
+        <router-link to="/products" class="btn btn-outline-primary px-5 rounded-4">繼續選購</router-link>
+        <router-link v-if="cartsLength > 0" to="/checkout" class="btn btn-danger px-5 text-white rounded-4">下一步
         </router-link>
       </div>
     </div>
