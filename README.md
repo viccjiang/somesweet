@@ -25,7 +25,6 @@ Demo：[https://viccjiang.github.io/somesweet/#//](https://viccjiang.github.io/s
 * 引入 `Bootstrap 5` 樣式
 * 加入 `ESLint Airbnb` 風格
 * 串接 `RESTful API `
-* 透過 `mitt` 傳遞跨元件資料
 * 使用 `Bootstrap 5` 切版，結合 `Sass` 客製化樣式
 * 使用 `Bootstrap Icons`
 
