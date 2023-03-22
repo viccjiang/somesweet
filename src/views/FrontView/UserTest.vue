@@ -3,7 +3,7 @@
   <section class="gsapLoop bg-warning">
     <ul class="loop d-flex justify-content-center align-items-center">
       <li class="fs-6 text-bk-bread">
-        <span> 限時領取優惠碼 2023 </span>
+        <span> 限時領取優惠碼 2023 test</span>
 
       </li>
     </ul>
