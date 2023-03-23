@@ -126,11 +126,6 @@ const routes = [
     path: '/admin/:pathMatch(.*)*',
     redirect: { name: 'login' }
   }
-  // 404 頁面
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   component: () => import('../views/NotFound.vue')
-  // }
 ]
 
 const router = createRouter({
