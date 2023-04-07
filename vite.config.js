@@ -11,6 +11,10 @@ export default defineConfig({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
     })
   ],
+  server: {
+    host: '0.0.0.0',
+    open: true
+  },
   base: '/somesweet/',
   resolve: {
     alias: {
