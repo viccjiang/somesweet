@@ -27,7 +27,7 @@
 
   <div class="container mt-10">
     <div class="text-area mb-10">
-      <p class="fs-lg lh-lg">清晨一點甜</p>
+      <p class="fs-lg lh-lg">清晨一點甜 SOME SWEET</p>
       <p class="fw-light lh-lg mb-10">
         「清晨一點甜，讓你的一天有好的開始」是我們甜點店的口號。我們深信，一份甜點的美味可以為人帶來無限的愉悅和滿足，就像清晨第一口甜點的滋味，可以為一整天注入能量和動力。因此，我們精選最優質的食材和最精湛的烘焙技術，製作出各式各樣的美味甜點，期望能為每一位客人帶來美好的味覺體驗。
       </p>

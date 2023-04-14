@@ -97,12 +97,12 @@ export default {
             // // 轉址
             this.$router.push('/admin')
           } else {
-            console.log(res.data.message)
+            // console.log(res.data.message)
             this.user.username = ''
             this.user.password = ''
           }
-        }).catch((err) => {
-          console.dir(err.data.message)
+        }).catch(() => {
+          // console.dir(err.data.message)
         })
     },
     goBack () {
