@@ -170,7 +170,7 @@
                             ">
                           <!-- 減 -->
                           <div>
-                            <button @click="updateCartItem(item, item.qty--)" class="btn border-0 bg-light" type="button">
+                            <button :disabled="item.qty <= 1"  @click="updateCartItem(item, item.qty--)" class="btn border-0 bg-light" type="button" >
                               <i class="bi bi-dash-lg"></i>
                             </button>
                           </div>

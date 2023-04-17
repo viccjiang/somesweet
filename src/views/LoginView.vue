@@ -42,13 +42,12 @@
                     <button class="btn btn-lg btn-outline-primary w-100 mt-3 mb-3" type="button" @click="goBack">
                       回到首頁
                     </button>
-                    <button class="btn btn-lg btn-primary w-100 mt-3 mb-3">
+                    <button class="btn btn-lg btn-primary w-100 mt-3 mb-3" :disabled="user.username === ''" >
                       立即登入
                     </button>
                   </div>
 
-                  <div class="d-flex justify-content-between align-items-center">
-                    <!-- Checkbox -->
+                  <!-- <div class="d-flex justify-content-between align-items-center">
                     <div class="form-check mb-0">
                       <input class="form-check-input me-2" type="checkbox" value="" id="formRemenber" />
                       <label class="form-check-label" for="formRemenber">
@@ -56,7 +55,7 @@
                       </label>
                     </div>
                     <a href="#" class="small text-muted">Forgot password?</a>
-                  </div>
+                  </div> -->
                 </FormView>
 
               </div>
